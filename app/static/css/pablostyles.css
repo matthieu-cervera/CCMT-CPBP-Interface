@@ -1,0 +1,387 @@
+/*TYPEWRITTING EFFECTS are on the JS page*/
+
+#bodyID {
+    overflow: visible;
+}
+
+.btn-circle-pablo {
+
+    padding: 13px 18px;
+    border-radius: 60px;
+    text-align: center;
+
+}
+
+.underline-pablo {
+    background-image: linear-gradient(0, #d8e3eb 0, #d8e3eb);
+    -webkit-background-size: 100% 17px;
+    background-size: 100% 17px;
+    background-repeat: no-repeat;
+    -webkit-background-position: 0 100%;
+    background-position: 0 100%;
+}
+
+.b-example-divider {
+    height: 10vh;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);
+}
+
+.section-hero {
+    display: flex;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.hero {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    align-items: center;
+}
+
+.hero img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.hero h1 {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    color: white;
+    z-index: 2;
+}
+
+.hero h4 {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    color: white;
+    z-index: 2;
+}
+
+.hero button {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    border: none;
+    color: #212529;
+    background-color: white;
+    z-index: 2;
+}
+
+.hero::after {
+    content: "";
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+}
+
+.noteaeroplane-animation {
+    background-color: white;
+    height: 30vh;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.noteaeroplane {
+    height: 80px;
+    position: absolute;
+    top: 60%;
+    left: 0%;
+}
+
+#pinContainer {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    -webkit-perspective: 1000;
+            perspective: 1000;
+}
+
+#slideContainer {
+    width: 300%;
+    height: 100%;
+}
+
+.singleContainer {
+    width: calc(100% / 3);
+    height: 100%; 
+    float: left;
+}
+
+#brainImage {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.popup {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    visibility: hidden;
+    z-index: 10;
+    transform: translate(-50%, -50%) scale(0.1);
+    transition: transform 0.6s, top 0.6s;
+}
+
+.popup-2 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    visibility: hidden;
+    z-index: 10;
+    transform: translate(-50%, -50%) scale(0.1);
+}
+
+.open-popup {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.overlayPopUp {
+    z-index: 9;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+    pointer-events: none;
+}
+
+.overlayPopUp.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.chooseMIDI {
+    z-index: 8;
+    width: 50%;
+}
+
+/*CSS Styles for the Customize your Melody page*/
+
+.meas-backg {
+    background-color: white;
+}
+
+.meas-backg.ActiveContinuous {
+    background-color: red;
+    opacity: 0.8;
+    pointer-events: all;
+}
+
+.meas-backg.ActiveSeparated {
+    background-color: blue;
+    opacity: 0.8;
+    pointer-events: all;
+}
+
+.meas-backg.ActiveSeparated.Saved {
+    background-color: grey;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.measure16 {
+    visibility: hidden;
+}
+
+.measure16.active {
+    visibility: visible;
+}
+
+.measure32 {
+    visibility: hidden;
+}
+
+.measure32.active {
+    visibility: visible;
+}
+
+.hrconst {
+    margin: auto;
+    width: 90%;
+    height: 2px;
+    background: black;
+    color: black;
+     opacity: 0.6;
+}
+
+.vrconst {
+    margin: auto;
+    height: 80px;
+}
+
+input[name="pitchNSD"] {
+    accent-color: black;
+}
+
+.disabled-general {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+.btn-logged{
+    background-color: #5f99c5;
+}
+
+.alert-container {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.alert {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: .75rem 1.25rem;
+  margin: -.75rem -.75rem -.75rem auto;
+  background-color: transparent;
+  border: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  cursor: pointer;
+  transition: opacity .15s linear;
+}
+
+.alert .close:hover {
+  opacity: .75;
+}
+
+.alert .close span {
+  color: #000;
+  text-shadow: none;
+}
+
+/*Captcha styling (not used)*/
+.small-image {
+    display: inline-block;
+    width: 33.3%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .small-image:hover {
+    border: 2px solid black;
+  }
+  
+
+  /* Generation bar */
+  .indeterminate-progress-bar {
+      /* Color */
+      background-color: #d1d5db;
+  
+      /* Rounded border */
+      border-radius: 9999px;
+  
+      /* Size */
+      height: 0.5rem;
+      width: 50%;
+      position: relative;
+      overflow: hidden;
+      display: none;
+  }
+  
+  .indeterminate-progress-bar__progress {
+      /* Color */
+      background-color: #3b82f6;
+  
+      /* Rounded border */
+      border-radius: 9999px;
+  
+      /* Absolute position */
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      width: 50%;
+  
+      /* Move the bar infinitely */
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-name: indeterminate-progress-bar;
+  }
+  
+  @keyframes indeterminate-progress-bar {
+      from {
+          left: -50%;
+      }
+      to {
+          left: 100%;
+      }
+  }
+  
+  .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    display: none;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

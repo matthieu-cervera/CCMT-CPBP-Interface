@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+<!-- results.html : page where the user can listen to the results, see the scores, and download the generated file(s)-->
+
+{% block content %}
+    <main>
+
+        <div class="container-fluid" style="height: 220px;">
+        </div>    
+        <style>
+            .title {
+                font-size: 20px;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+        
+            .image-container {
+                width: 100%;
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: row;
+            }
+        
+            .image-container img {
+                width: 45%;
+                display: flex;
+            }
+        
+            .image-container midi-player {
+                width: 35%;
+                margin-top: 10px;
+            }
+        
+            .button-container {
+                width: 15%;
+                display: flex;
+                flex-direction: column;
+                /* align-items: center; */
+            }
+        
+            .delete-button {
+                background-color: #820e0e;
+                margin-top: 10px;
+                font-size: 16px;
+                padding: 10px;
+            }
+        
+            .download-button {
+                font-size: 20px;
+                padding: 15px;
+            }
+        
+            .horizontal-line {
+                border-top: 2px solid #000000;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        </style>
+        
+        <div class="row m-4 text-center">
+            <div class="title">Generated MIDI file</div>
+            {% for i in range(all_midi|length) %}
+            <div class="image-container">
+                <img src="{{ all_images[i] }}">
+                <midi-player src="{{ all_midi[i] }}" sound-font></midi-player>
+                <div class="button-container">
+                    <form action="{{url_for('make_file_downloadable')}}" id="download-form-{{ i }}" method="POST">
+                        <input type="hidden" id="sample_path" name="sample_path" value="{{ all_midi[i] }}">
+                        <button type="submit" class="btn btn-outline-dark btn-lg download-button">Download</button>
+                    </form>
+                    <form id="delete-form-{{ i }}" method="POST">
+                        <input type="hidden" id="sample_path" name="sample_path" value="{{ all_midi[i] }}">
+                        <button type="submit" class="btn btn-dark btn-lg delete-button">Delete from DB</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="horizontal-line">
+            {% endfor %}
+            <div class="title">Groundtruth MIDI file</div>
+            <div class="image-container">
+                <img src="{{ gt_png }}">
+                <midi-player src="{{ gt_mid }}" sound-font></midi-player>
+                <div class="button-container">
+                    <form action="{{url_for('make_file_downloadable')}}" id="download-form-{{ i }}" method="POST">
+                        <input type="hidden" id="sample_path" name="sample_path" value="{{ gt_mid }}">
+                        <button type="submit" class="btn btn-outline-dark btn-lg download-button">Download</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="container-fluid" style="height: 150px;">
+        </div>
+
+
+<div id="output-div"></div>
+
+
+
+
+        <div class="container-fluid" style="height: 80px;"></div>
+        <div class="container" style="width: 70%;">
+        </div>
+        <div class="container-fluid" style="height: 40px;">
+        </div>
+        <div class="container-fluid" style="height: 40px;"></div>
+        <!--User Status Form-->
+        {% include 'user_status.html' %}
+        <!---->
+        <!--Overlay-->
+        <div class="overlayPopUp" style="position: fixed;"></div>
+        <!---->
+    </main>
+    <footer class="text-center text-white border-top" style="background-color: #5f99c5; ">
+        <div class="container-fluid justify-content-center">
+            <div class="row justify-content-center">
+                <div class="col-4"></div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #3b5998;"
+                        href="https://www.facebook.com/polymtl" target="_blank" role="button"><i
+                            class="fa fa-facebook-f fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #333333;"
+                        href="https://www.youtube.com/@polymtlvideos" target="_blank" role="button"><i
+                            class="fa fa-youtube fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #dd4b39;"
+                        href="https://www.polymtl.ca/" target="_blank" role="button"><i class="fa fa-google fa-lg"></i>
+                    </a>
+                    </button>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #55acee;"
+                        href="https://twitter.com/polymtl" target="_blank" role="button"><i
+                            class="fa fa-twitter fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="text-center text-white p-3" style="background-color: #1A6DAC">
+                    © 2022 Copyright:
+                    <a class="text-white" href="https://www.polymtl.ca/" target="_blank">Polytechnique Montréal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="static/js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.22.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
+    <script type="text/javascript" src="static/js/results.js"></script>
+
+    {% endblock %} 
+
+
+

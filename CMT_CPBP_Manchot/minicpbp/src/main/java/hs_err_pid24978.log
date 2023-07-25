@@ -1,0 +1,2374 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0x7) at pc=0x00007f75ccfab4e2, pid=24978, tid=0x00007f75d02f2700
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_181-b13) (build 1.8.0_181-b13)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.181-b13 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [libzip.so+0x124e2]  newEntry+0x62
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f75c8009800):  JavaThread "main" [_thread_in_native, id=24979, stack(0x00007f75d01f3000,0x00007f75d02f3000)]
+
+siginfo: si_signo: 7 (SIGBUS), si_code: 2 (BUS_ADRERR), si_addr: 0x00007f74ba0fea2e
+
+Registers:
+RAX=0x00007f75c81db6e0, RBX=0x00007f75c814a440, RCX=0x00007f75c81db6d0, RDX=0x00007f75c81db6e0
+RSP=0x00007f75d02ef2e0, RBP=0x00007f75d02ef330, RSI=0x00007f75c8000038, RDI=0x0000000000000000
+R8 =0x0000000000000003, R9 =0x0000000000000048, R10=0x2f656e69676e652f, R11=0x746e492f65726f63
+R12=0x00007f74ba0fea11, R13=0x00007f75c81db6e0, R14=0x000000000e197622, R15=0x00007f75c814a020
+RIP=0x00007f75ccfab4e2, EFLAGS=0x0000000000010206, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f75d02ef2e0)
+0x00007f75d02ef2e0:   00007f757075b488 00007f7500000000
+0x00007f75d02ef2f0:   00000008000007a8 00007f75cf003eae
+0x00007f75d02ef300:   00007f75c81db6e0 00007f75c814a440
+0x00007f75d02ef310:   00007f75c819c950 00007f75c814a020
+0x00007f75d02ef320:   000000000e197622 0000000000000025
+0x00007f75d02ef330:   00007f75d02ef390 00007f75ccfabc3f
+0x00007f75d02ef340:   00007f75c8009800 01007f7470868bd8
+0x00007f75d02ef350:   00007f75d02ef3b0 00007f75d02ef3d6
+0x00007f75d02ef360:   00007f75d02ef3d4 00007f75d02ef3b0
+0x00007f75d02ef370:   0000000000000025 00007f75c80099f8
+0x00007f75d02ef380:   00007f75d02ef888 0000000000000001
+0x00007f75d02ef390:   00007f75d02ef7f0 00007f75ccf9ce90
+0x00007f75d02ef3a0:   00007f757081d580 00007f75c814a020
+0x00007f75d02ef3b0:   70627063696e696d 2f656e69676e652f
+0x00007f75d02ef3c0:   746e492f65726f63 2e6c706d49726156
+0x00007f75d02ef3d0:   0000007373616c63 00000000706ebfd8
+0x00007f75d02ef3e0:   00007f757078d678 00007f75706ac2e8
+0x00007f75d02ef3f0:   0000000a7067f698 00007f7570860fc0
+0x00007f75d02ef400:   00007f7570861610 0000000870802cf8
+0x00007f75d02ef410:   000000007081d560 00007f7570852508
+0x00007f75d02ef420:   00007f757075b488 00007f7570898e28
+0x00007f75d02ef430:   00007f75d02ef4a0 00007f7570868bd8
+0x00007f75d02ef440:   00007f757085fc00 00007f757079b6c8
+0x00007f75d02ef450:   00007f75706e7768 00007f75706e6fe8
+0x00007f75d02ef460:   00007f757085fc00 00007f7570898fe0
+0x00007f75d02ef470:   00007f75706ac2c8 00007f75706e76e8
+0x00007f75d02ef480:   00007f75708bc1f8 00007f75706e4720
+0x00007f75d02ef490:   00007f7570868bd8 000000007075b488
+0x00007f75d02ef4a0:   00007f75706c7db0 00007f75707263f8
+0x00007f75d02ef4b0:   000000087079b6a8 00007f75cf798e2c
+0x00007f75d02ef4c0:   0000000000000000 00007f75706e6fc8
+0x00007f75d02ef4d0:   00007f7570788250 00007f75cf2505cc 
+
+Instructions: (pc=0x00007f75ccfab4e2)
+0x00007f75ccfab4c2:   00 48 c7 40 28 00 00 00 00 41 80 7f 30 00 0f 84
+0x00007f75ccfab4d2:   8a 02 00 00 4c 8b 63 08 4d 2b 67 28 4d 03 67 18
+0x00007f75ccfab4e2:   41 0f b6 5c 24 1d 41 0f b6 44 24 1c c1 e3 08 09
+0x00007f75ccfab4f2:   c3 41 0f b6 44 24 1e 88 45 bd 41 0f b6 54 24 20 
+
+Register to memory mapping:
+
+RAX=0x00007f75c81db6e0 is an unknown value
+RBX=0x00007f75c814a440 is an unknown value
+RCX=0x00007f75c81db6d0 is an unknown value
+RDX=0x00007f75c81db6e0 is an unknown value
+RSP=0x00007f75d02ef2e0 is pointing into the stack for thread: 0x00007f75c8009800
+RBP=0x00007f75d02ef330 is pointing into the stack for thread: 0x00007f75c8009800
+RSI=0x00007f75c8000038 is an unknown value
+RDI=0x0000000000000000 is an unknown value
+R8 =0x0000000000000003 is an unknown value
+R9 =0x0000000000000048 is an unknown value
+R10=0x2f656e69676e652f is an unknown value
+R11=0x746e492f65726f63 is an unknown value
+R12=0x00007f74ba0fea11 is an unknown value
+R13=0x00007f75c81db6e0 is an unknown value
+R14=0x000000000e197622 is an unknown value
+R15=0x00007f75c814a020 is an unknown value
+
+
+Stack: [0x00007f75d01f3000,0x00007f75d02f3000],  sp=0x00007f75d02ef2e0,  free space=1008k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libzip.so+0x124e2]  newEntry+0x62
+C  [libzip.so+0x12c3f]  ZIP_GetEntry2+0xff
+C  [libzip.so+0x3e90]  Java_java_util_zip_ZipFile_getEntry+0xf0
+j  java.util.zip.ZipFile.getEntry(J[BZ)J+0
+j  java.util.zip.ZipFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;+38
+J 46 C1 sun.misc.URLClassPath$JarLoader.getResource(Ljava/lang/String;Z)Lsun/misc/Resource; (85 bytes) @ 0x00007f75b93e8ae4 [0x00007f75b93e8880+0x264]
+j  sun.misc.URLClassPath.getResource(Ljava/lang/String;Z)Lsun/misc/Resource;+62
+j  java.net.URLClassLoader$1.run()Ljava/lang/Class;+26
+j  java.net.URLClassLoader$1.run()Ljava/lang/Object;+1
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x697a76]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x1056
+V  [libjvm.so+0x73107c]  JVM_DoPrivileged+0x27c
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;+0
+j  java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class;+13
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+70
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+81
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x697a76]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x1056
+V  [libjvm.so+0x697f81]  JavaCalls::call_virtual(JavaValue*, KlassHandle, Symbol*, Symbol*, JavaCallArguments*, Thread*)+0x321
+V  [libjvm.so+0x6983d6]  JavaCalls::call_virtual(JavaValue*, Handle, KlassHandle, Symbol*, Symbol*, Handle, Thread*)+0x56
+V  [libjvm.so+0xa47760]  SystemDictionary::load_instance_class(Symbol*, Handle, Thread*)+0x3f0
+V  [libjvm.so+0xa466ac]  SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, Thread*)+0x78c
+V  [libjvm.so+0xa47b83]  SystemDictionary::resolve_or_fail(Symbol*, Handle, Handle, bool, Thread*)+0x33
+V  [libjvm.so+0x4f92e8]  ConstantPool::klass_at_impl(constantPoolHandle, int, Thread*)+0x158
+V  [libjvm.so+0x68bf41]  InterpreterRuntime::_new(JavaThread*, ConstantPool*, int)+0x71
+j  minicpbp.cp.Factory.makeIntVar(Lminicpbp/engine/core/Solver;II)Lminicpbp/engine/core/IntVar;+0
+j  minicpbp.examples.pitchModel.postConstraints(Ljava/lang/String;ILjava/lang/String;Lminicpbp/engine/core/Solver;Ljava/lang/String;DI)Lminicpbp/examples/pitchModel$postConstraintsResult;+294
+j  minicpbp.examples.pitchModel.main([Ljava/lang/String;)V+138
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x697a76]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x1056
+V  [libjvm.so+0x6d91c2]  jni_invoke_static(JNIEnv_*, JavaValue*, _jobject*, JNICallType, _jmethodID*, JNI_ArgumentPusher*, Thread*)+0x362
+V  [libjvm.so+0x6f5a2a]  jni_CallStaticVoidMethod+0x17a
+C  [libjli.so+0x80ff]  JavaMain+0x81f
+C  [libpthread.so.0+0x7dd5]  start_thread+0xc5
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.util.zip.ZipFile.getEntry(J[BZ)J+0
+j  java.util.zip.ZipFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;+38
+J 46 C1 sun.misc.URLClassPath$JarLoader.getResource(Ljava/lang/String;Z)Lsun/misc/Resource; (85 bytes) @ 0x00007f75b93e8ae4 [0x00007f75b93e8880+0x264]
+j  sun.misc.URLClassPath.getResource(Ljava/lang/String;Z)Lsun/misc/Resource;+62
+j  java.net.URLClassLoader$1.run()Ljava/lang/Class;+26
+j  java.net.URLClassLoader$1.run()Ljava/lang/Object;+1
+v  ~StubRoutines::call_stub
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;+0
+j  java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class;+13
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+70
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+81
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+v  ~StubRoutines::call_stub
+j  minicpbp.cp.Factory.makeIntVar(Lminicpbp/engine/core/Solver;II)Lminicpbp/engine/core/IntVar;+0
+j  minicpbp.examples.pitchModel.postConstraints(Ljava/lang/String;ILjava/lang/String;Lminicpbp/engine/core/Solver;Ljava/lang/String;DI)Lminicpbp/examples/pitchModel$postConstraintsResult;+294
+j  minicpbp.examples.pitchModel.main([Ljava/lang/String;)V+138
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f75c813c000 JavaThread "Service Thread" daemon [_thread_blocked, id=25045, stack(0x00007f74ba2a3000,0x00007f74ba3a4000)]
+  0x00007f75c8139000 JavaThread "C1 CompilerThread17" daemon [_thread_blocked, id=25044, stack(0x00007f74ba3a5000,0x00007f74ba4a5000)]
+  0x00007f75c8137000 JavaThread "C1 CompilerThread16" daemon [_thread_blocked, id=25043, stack(0x00007f74ba4a6000,0x00007f74ba5a6000)]
+  0x00007f75c8135000 JavaThread "C1 CompilerThread15" daemon [_thread_blocked, id=25042, stack(0x00007f74ba5a7000,0x00007f74ba6a7000)]
+  0x00007f75c8133000 JavaThread "C1 CompilerThread14" daemon [_thread_blocked, id=25041, stack(0x00007f74ba6a8000,0x00007f74ba7a8000)]
+  0x00007f75c8130800 JavaThread "C1 CompilerThread13" daemon [_thread_blocked, id=25040, stack(0x00007f74ba7a9000,0x00007f74ba8a9000)]
+  0x00007f75c812e800 JavaThread "C1 CompilerThread12" daemon [_thread_blocked, id=25039, stack(0x00007f74ba8aa000,0x00007f74ba9aa000)]
+  0x00007f75c812c000 JavaThread "C2 CompilerThread11" daemon [_thread_blocked, id=25038, stack(0x00007f74ba9ab000,0x00007f74baaab000)]
+  0x00007f75c812a000 JavaThread "C2 CompilerThread10" daemon [_thread_blocked, id=25037, stack(0x00007f74baaac000,0x00007f74babac000)]
+  0x00007f75c8128000 JavaThread "C2 CompilerThread9" daemon [_thread_blocked, id=25036, stack(0x00007f74babad000,0x00007f74bacad000)]
+  0x00007f75c8126000 JavaThread "C2 CompilerThread8" daemon [_thread_blocked, id=25035, stack(0x00007f74bacae000,0x00007f74badae000)]
+  0x00007f75c8123800 JavaThread "C2 CompilerThread7" daemon [_thread_blocked, id=25034, stack(0x00007f74badaf000,0x00007f74baeaf000)]
+  0x00007f75c8121800 JavaThread "C2 CompilerThread6" daemon [_thread_blocked, id=25033, stack(0x00007f74baeb0000,0x00007f74bafb0000)]
+  0x00007f75c811f000 JavaThread "C2 CompilerThread5" daemon [_thread_blocked, id=25032, stack(0x00007f74bafb1000,0x00007f74bb0b1000)]
+  0x00007f75c8115000 JavaThread "C2 CompilerThread4" daemon [_thread_blocked, id=25031, stack(0x00007f74bb0b2000,0x00007f74bb1b2000)]
+  0x00007f75c8112800 JavaThread "C2 CompilerThread3" daemon [_thread_blocked, id=25030, stack(0x00007f74bb1b3000,0x00007f74bb2b3000)]
+  0x00007f75c8110800 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=25029, stack(0x00007f74bb2b4000,0x00007f74bb3b4000)]
+  0x00007f75c810e800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=25028, stack(0x00007f74bb3b5000,0x00007f74bb4b5000)]
+  0x00007f75c810b800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=25027, stack(0x00007f74bb4b6000,0x00007f74bb5b6000)]
+  0x00007f75c810a000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=25026, stack(0x00007f74bb5b6000,0x00007f74bb6b7000)]
+  0x00007f75c80d6800 JavaThread "Finalizer" daemon [_thread_blocked, id=25025, stack(0x00007f74bb6b7000,0x00007f74bb7b8000)]
+  0x00007f75c80d4000 JavaThread "Reference Handler" daemon [_thread_blocked, id=25024, stack(0x00007f74bb7b8000,0x00007f74bb8b9000)]
+=>0x00007f75c8009800 JavaThread "main" [_thread_in_native, id=24979, stack(0x00007f75d01f3000,0x00007f75d02f3000)]
+
+Other Threads:
+  0x00007f75c80ca000 VMThread [stack: 0x00007f74bb8ba000,0x00007f74bb9ba000] [id=25023]
+  0x00007f75c8141000 WatcherThread [stack: 0x00007f74ba1a3000,0x00007f74ba2a3000] [id=25046]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 611840K, used 52480K [0x0000000580100000, 0x00000005aab80000, 0x0000000800000000)
+  eden space 524800K, 10% used [0x0000000580100000,0x0000000583440070,0x00000005a0180000)
+  from space 87040K, 0% used [0x00000005a5680000,0x00000005a5680000,0x00000005aab80000)
+  to   space 87040K, 0% used [0x00000005a0180000,0x00000005a0180000,0x00000005a5680000)
+ ParOldGen       total 1398272K, used 0K [0x0000000080200000, 0x00000000d5780000, 0x0000000580100000)
+  object space 1398272K, 0% used [0x0000000080200000,0x0000000080200000,0x00000000d5780000)
+ Metaspace       used 3825K, capacity 4768K, committed 4864K, reserved 1056768K
+  class space    used 424K, capacity 468K, committed 512K, reserved 1048576K
+
+Card table byte_map: [0x00007f75b5400000,0x00007f75b9000000] byte_map_base: 0x00007f75b4fff000
+
+Marking Bits: (ParMarkBitMap*) 0x00007f75cf6ef0a0
+ Begin Bits: [0x00007f7574bf0000, 0x00007f7592be8000)
+ End Bits:   [0x00007f7592be8000, 0x00007f75b0be0000)
+
+Polling page: 0x00007f75d033e000
+
+CodeCache: size=245760Kb used=4204Kb max_used=4204Kb free=241555Kb
+ bounds [0x00007f75b9000000, 0x00007f75b9420000, 0x00007f75c8000000]
+ total_blobs=402 nmethods=143 adapters=168
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0,172 Thread 0x00007f75c8130800  139       3       java.util.regex.Pattern$BitClass::add (97 bytes)
+Event: 0,172 Thread 0x00007f75c8130800 nmethod 139 0x00007f75b9419250 code [0x00007f75b9419460, 0x00007f75b9419df8]
+Event: 0,172 Thread 0x00007f75c8130800  140       3       java.util.regex.ASCII::toLower (16 bytes)
+Event: 0,172 Thread 0x00007f75c8130800 nmethod 140 0x00007f75b941a310 code [0x00007f75b941a480, 0x00007f75b941a6d0]
+Event: 0,172 Thread 0x00007f75c8130800  141       3       java.util.regex.ASCII::isUpper (18 bytes)
+Event: 0,173 Thread 0x00007f75c8130800 nmethod 141 0x00007f75b941a790 code [0x00007f75b941a900, 0x00007f75b941aab0]
+Event: 0,173 Thread 0x00007f75c8130800  142       3       java.util.regex.ASCII::toUpper (16 bytes)
+Event: 0,173 Thread 0x00007f75c8130800 nmethod 142 0x00007f75b941ab10 code [0x00007f75b941ac80, 0x00007f75b941aed0]
+Event: 0,173 Thread 0x00007f75c8130800  143       3       java.util.regex.ASCII::isLower (18 bytes)
+Event: 0,173 Thread 0x00007f75c8130800 nmethod 143 0x00007f75b941af90 code [0x00007f75b941b100, 0x00007f75b941b2b0]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (6 events):
+Event: 0,044 Thread 0x00007f75c8009800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x0000000580107cb0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/sh
+Event: 0,044 Thread 0x00007f75c8009800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x0000000580107f98) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/prims/jni.c
+Event: 0,141 Thread 0x00007f75c8009800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000580217310) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/prims/jvm.cpp, line 1435]
+Event: 0,141 Thread 0x00007f75c8009800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000580217708) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/prims/jvm.cpp, line 1435]
+Event: 0,142 Thread 0x00007f75c8009800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000580219b58) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/prims/jvm.cpp, line 1435]
+Event: 0,142 Thread 0x00007f75c8009800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000580219f50) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/prims/jvm.cpp, line 1435]
+
+Events (10 events):
+Event: 0,159 loading class java/util/regex/Pattern$GroupTail
+Event: 0,159 loading class java/util/regex/Pattern$GroupTail done
+Event: 0,159 loading class java/util/regex/Pattern$Ques
+Event: 0,159 loading class java/util/regex/Pattern$Ques done
+Event: 0,160 loading class java/util/regex/Pattern$Loop
+Event: 0,160 loading class java/util/regex/Pattern$Loop done
+Event: 0,160 loading class java/util/regex/Pattern$Prolog
+Event: 0,160 loading class java/util/regex/Pattern$Prolog done
+Event: 0,175 loading class minicpbp/engine/core/IntVarImpl
+Event: 0,175 loading class minicpbp/engine/core/IntVarImpl done
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:02 4719517                            /opt/java/jdk8.x86_64/bin/java
+00600000-00601000 rw-p 00000000 08:02 4719517                            /opt/java/jdk8.x86_64/bin/java
+015a7000-015c8000 rw-p 00000000 00:00 0                                  [heap]
+80200000-d5780000 rw-p 00000000 00:00 0 
+d5780000-580100000 ---p 00000000 00:00 0 
+580100000-5aab80000 rw-p 00000000 00:00 0 
+5aab80000-800000000 ---p 00000000 00:00 0 
+800000000-800080000 rw-p 00000000 00:00 0 
+800080000-840000000 ---p 00000000 00:00 0 
+7f7450000000-7f7450021000 rw-p 00000000 00:00 0 
+7f7450021000-7f7454000000 ---p 00000000 00:00 0 
+7f7454000000-7f7454021000 rw-p 00000000 00:00 0 
+7f7454021000-7f7458000000 ---p 00000000 00:00 0 
+7f7458000000-7f7458021000 rw-p 00000000 00:00 0 
+7f7458021000-7f745c000000 ---p 00000000 00:00 0 
+7f745c000000-7f745c021000 rw-p 00000000 00:00 0 
+7f745c021000-7f7460000000 ---p 00000000 00:00 0 
+7f7460000000-7f746002a000 rw-p 00000000 00:00 0 
+7f746002a000-7f7464000000 ---p 00000000 00:00 0 
+7f7464000000-7f7464073000 rw-p 00000000 00:00 0 
+7f7464073000-7f7468000000 ---p 00000000 00:00 0 
+7f7468000000-7f7468058000 rw-p 00000000 00:00 0 
+7f7468058000-7f746c000000 ---p 00000000 00:00 0 
+7f746c000000-7f746c10f000 rw-p 00000000 00:00 0 
+7f746c10f000-7f7470000000 ---p 00000000 00:00 0 
+7f7470000000-7f7470021000 rw-p 00000000 00:00 0 
+7f7470021000-7f7474000000 ---p 00000000 00:00 0 
+7f7474000000-7f7474021000 rw-p 00000000 00:00 0 
+7f7474021000-7f7478000000 ---p 00000000 00:00 0 
+7f7478000000-7f7478021000 rw-p 00000000 00:00 0 
+7f7478021000-7f747c000000 ---p 00000000 00:00 0 
+7f747c000000-7f747c021000 rw-p 00000000 00:00 0 
+7f747c021000-7f7480000000 ---p 00000000 00:00 0 
+7f7480000000-7f7480021000 rw-p 00000000 00:00 0 
+7f7480021000-7f7484000000 ---p 00000000 00:00 0 
+7f7484000000-7f7484021000 rw-p 00000000 00:00 0 
+7f7484021000-7f7488000000 ---p 00000000 00:00 0 
+7f7488000000-7f7488021000 rw-p 00000000 00:00 0 
+7f7488021000-7f748c000000 ---p 00000000 00:00 0 
+7f748c000000-7f748c021000 rw-p 00000000 00:00 0 
+7f748c021000-7f7490000000 ---p 00000000 00:00 0 
+7f7490000000-7f7490021000 rw-p 00000000 00:00 0 
+7f7490021000-7f7494000000 ---p 00000000 00:00 0 
+7f7494000000-7f7494021000 rw-p 00000000 00:00 0 
+7f7494021000-7f7498000000 ---p 00000000 00:00 0 
+7f7498000000-7f7498021000 rw-p 00000000 00:00 0 
+7f7498021000-7f749c000000 ---p 00000000 00:00 0 
+7f749c000000-7f749c06e000 rw-p 00000000 00:00 0 
+7f749c06e000-7f74a0000000 ---p 00000000 00:00 0 
+7f74a0000000-7f74a0021000 rw-p 00000000 00:00 0 
+7f74a0021000-7f74a4000000 ---p 00000000 00:00 0 
+7f74a5ad6000-7f74ac000000 r--p 00000000 08:02 3540836                    /usr/lib/locale/locale-archive
+7f74ac000000-7f74ac021000 rw-p 00000000 00:00 0 
+7f74ac021000-7f74b0000000 ---p 00000000 00:00 0 
+7f74b0000000-7f74b0021000 rw-p 00000000 00:00 0 
+7f74b0021000-7f74b4000000 ---p 00000000 00:00 0 
+7f74b4000000-7f74b4021000 rw-p 00000000 00:00 0 
+7f74b4021000-7f74b8000000 ---p 00000000 00:00 0 
+7f74ba0e1000-7f74ba0fd000 r--s 00393000 08:02 4858316                    /opt/java/jdk8.x86_64/jre/lib/ext/cldrdata.jar
+7f74ba0fd000-7f74ba1a2000 r--s 00e6e000 08:04 6863149                    /home/usagers/p118640/User_Interface_Project-main/CMT_CPBP_Manchot/minicpbp/target/minicpbp-1.0.jar
+7f74ba1a2000-7f74ba1a3000 ---p 00000000 00:00 0 
+7f74ba1a3000-7f74ba2a3000 rw-p 00000000 00:00 0 
+7f74ba2a3000-7f74ba2a6000 ---p 00000000 00:00 0 
+7f74ba2a6000-7f74ba3a4000 rw-p 00000000 00:00 0 
+7f74ba3a4000-7f74ba3a8000 ---p 00000000 00:00 0 
+7f74ba3a8000-7f74ba4a5000 rw-p 00000000 00:00 0 
+7f74ba4a5000-7f74ba4a9000 ---p 00000000 00:00 0 
+7f74ba4a9000-7f74ba5a6000 rw-p 00000000 00:00 0 
+7f74ba5a6000-7f74ba5aa000 ---p 00000000 00:00 0 
+7f74ba5aa000-7f74ba6a7000 rw-p 00000000 00:00 0 
+7f74ba6a7000-7f74ba6ab000 ---p 00000000 00:00 0 
+7f74ba6ab000-7f74ba7a8000 rw-p 00000000 00:00 0 
+7f74ba7a8000-7f74ba7ac000 ---p 00000000 00:00 0 
+7f74ba7ac000-7f74ba8a9000 rw-p 00000000 00:00 0 
+7f74ba8a9000-7f74ba8ad000 ---p 00000000 00:00 0 
+7f74ba8ad000-7f74ba9aa000 rw-p 00000000 00:00 0 
+7f74ba9aa000-7f74ba9ae000 ---p 00000000 00:00 0 
+7f74ba9ae000-7f74baaab000 rw-p 00000000 00:00 0 
+7f74baaab000-7f74baaaf000 ---p 00000000 00:00 0 
+7f74baaaf000-7f74babac000 rw-p 00000000 00:00 0 
+7f74babac000-7f74babb0000 ---p 00000000 00:00 0 
+7f74babb0000-7f74bacad000 rw-p 00000000 00:00 0 
+7f74bacad000-7f74bacb1000 ---p 00000000 00:00 0 
+7f74bacb1000-7f74badae000 rw-p 00000000 00:00 0 
+7f74badae000-7f74badb2000 ---p 00000000 00:00 0 
+7f74badb2000-7f74baeaf000 rw-p 00000000 00:00 0 
+7f74baeaf000-7f74baeb3000 ---p 00000000 00:00 0 
+7f74baeb3000-7f74bafb0000 rw-p 00000000 00:00 0 
+7f74bafb0000-7f74bafb4000 ---p 00000000 00:00 0 
+7f74bafb4000-7f74bb0b1000 rw-p 00000000 00:00 0 
+7f74bb0b1000-7f74bb0b5000 ---p 00000000 00:00 0 
+7f74bb0b5000-7f74bb1b2000 rw-p 00000000 00:00 0 
+7f74bb1b2000-7f74bb1b6000 ---p 00000000 00:00 0 
+7f74bb1b6000-7f74bb2b3000 rw-p 00000000 00:00 0 
+7f74bb2b3000-7f74bb2b7000 ---p 00000000 00:00 0 
+7f74bb2b7000-7f74bb3b4000 rw-p 00000000 00:00 0 
+7f74bb3b4000-7f74bb3b8000 ---p 00000000 00:00 0 
+7f74bb3b8000-7f74bb4b5000 rw-p 00000000 00:00 0 
+7f74bb4b5000-7f74bb4b9000 ---p 00000000 00:00 0 
+7f74bb4b9000-7f74bb5b6000 rw-p 00000000 00:00 0 
+7f74bb5b6000-7f74bb5b9000 ---p 00000000 00:00 0 
+7f74bb5b9000-7f74bb6b7000 rw-p 00000000 00:00 0 
+7f74bb6b7000-7f74bb6ba000 ---p 00000000 00:00 0 
+7f74bb6ba000-7f74bb7b8000 rw-p 00000000 00:00 0 
+7f74bb7b8000-7f74bb7bb000 ---p 00000000 00:00 0 
+7f74bb7bb000-7f74bb8b9000 rw-p 00000000 00:00 0 
+7f74bb8b9000-7f74bb8ba000 ---p 00000000 00:00 0 
+7f74bb8ba000-7f74c4000000 rw-p 00000000 00:00 0 
+7f74c4000000-7f74c4021000 rw-p 00000000 00:00 0 
+7f74c4021000-7f74c8000000 ---p 00000000 00:00 0 
+7f74c8000000-7f74c8021000 rw-p 00000000 00:00 0 
+7f74c8021000-7f74cc000000 ---p 00000000 00:00 0 
+7f74cc000000-7f74cc021000 rw-p 00000000 00:00 0 
+7f74cc021000-7f74d0000000 ---p 00000000 00:00 0 
+7f74d0000000-7f74d0021000 rw-p 00000000 00:00 0 
+7f74d0021000-7f74d4000000 ---p 00000000 00:00 0 
+7f74d4000000-7f74d4021000 rw-p 00000000 00:00 0 
+7f74d4021000-7f74d8000000 ---p 00000000 00:00 0 
+7f74d8000000-7f74d8021000 rw-p 00000000 00:00 0 
+7f74d8021000-7f74dc000000 ---p 00000000 00:00 0 
+7f74dc000000-7f74dc021000 rw-p 00000000 00:00 0 
+7f74dc021000-7f74e0000000 ---p 00000000 00:00 0 
+7f74e0000000-7f74e0021000 rw-p 00000000 00:00 0 
+7f74e0021000-7f74e4000000 ---p 00000000 00:00 0 
+7f74e4000000-7f74e4021000 rw-p 00000000 00:00 0 
+7f74e4021000-7f74e8000000 ---p 00000000 00:00 0 
+7f74e8000000-7f74e8021000 rw-p 00000000 00:00 0 
+7f74e8021000-7f74ec000000 ---p 00000000 00:00 0 
+7f74ec000000-7f74ec021000 rw-p 00000000 00:00 0 
+7f74ec021000-7f74f0000000 ---p 00000000 00:00 0 
+7f74f0000000-7f74f0021000 rw-p 00000000 00:00 0 
+7f74f0021000-7f74f4000000 ---p 00000000 00:00 0 
+7f74f4000000-7f74f4021000 rw-p 00000000 00:00 0 
+7f74f4021000-7f74f8000000 ---p 00000000 00:00 0 
+7f74f8000000-7f74f8021000 rw-p 00000000 00:00 0 
+7f74f8021000-7f74fc000000 ---p 00000000 00:00 0 
+7f74fc000000-7f74fc021000 rw-p 00000000 00:00 0 
+7f74fc021000-7f7500000000 ---p 00000000 00:00 0 
+7f7500000000-7f7500021000 rw-p 00000000 00:00 0 
+7f7500021000-7f7504000000 ---p 00000000 00:00 0 
+7f7504000000-7f7504021000 rw-p 00000000 00:00 0 
+7f7504021000-7f7508000000 ---p 00000000 00:00 0 
+7f7508000000-7f7508021000 rw-p 00000000 00:00 0 
+7f7508021000-7f750c000000 ---p 00000000 00:00 0 
+7f750c000000-7f750c021000 rw-p 00000000 00:00 0 
+7f750c021000-7f7510000000 ---p 00000000 00:00 0 
+7f7510000000-7f7510021000 rw-p 00000000 00:00 0 
+7f7510021000-7f7514000000 ---p 00000000 00:00 0 
+7f7514000000-7f7514021000 rw-p 00000000 00:00 0 
+7f7514021000-7f7518000000 ---p 00000000 00:00 0 
+7f7518000000-7f7518021000 rw-p 00000000 00:00 0 
+7f7518021000-7f751c000000 ---p 00000000 00:00 0 
+7f751c000000-7f751c021000 rw-p 00000000 00:00 0 
+7f751c021000-7f7520000000 ---p 00000000 00:00 0 
+7f7520000000-7f7520021000 rw-p 00000000 00:00 0 
+7f7520021000-7f7524000000 ---p 00000000 00:00 0 
+7f7524000000-7f7524021000 rw-p 00000000 00:00 0 
+7f7524021000-7f7528000000 ---p 00000000 00:00 0 
+7f7528000000-7f7528021000 rw-p 00000000 00:00 0 
+7f7528021000-7f752c000000 ---p 00000000 00:00 0 
+7f752c000000-7f752c021000 rw-p 00000000 00:00 0 
+7f752c021000-7f7530000000 ---p 00000000 00:00 0 
+7f7530000000-7f7530021000 rw-p 00000000 00:00 0 
+7f7530021000-7f7534000000 ---p 00000000 00:00 0 
+7f7534000000-7f7534021000 rw-p 00000000 00:00 0 
+7f7534021000-7f7538000000 ---p 00000000 00:00 0 
+7f7538000000-7f7538021000 rw-p 00000000 00:00 0 
+7f7538021000-7f753c000000 ---p 00000000 00:00 0 
+7f753c000000-7f753c021000 rw-p 00000000 00:00 0 
+7f753c021000-7f7540000000 ---p 00000000 00:00 0 
+7f7540000000-7f7540021000 rw-p 00000000 00:00 0 
+7f7540021000-7f7544000000 ---p 00000000 00:00 0 
+7f7544000000-7f7544021000 rw-p 00000000 00:00 0 
+7f7544021000-7f7548000000 ---p 00000000 00:00 0 
+7f7548000000-7f7548021000 rw-p 00000000 00:00 0 
+7f7548021000-7f754c000000 ---p 00000000 00:00 0 
+7f754c000000-7f754c021000 rw-p 00000000 00:00 0 
+7f754c021000-7f7550000000 ---p 00000000 00:00 0 
+7f7550000000-7f7550021000 rw-p 00000000 00:00 0 
+7f7550021000-7f7554000000 ---p 00000000 00:00 0 
+7f7554000000-7f7554021000 rw-p 00000000 00:00 0 
+7f7554021000-7f7558000000 ---p 00000000 00:00 0 
+7f7558000000-7f7558021000 rw-p 00000000 00:00 0 
+7f7558021000-7f755c000000 ---p 00000000 00:00 0 
+7f755c000000-7f755c021000 rw-p 00000000 00:00 0 
+7f755c021000-7f7560000000 ---p 00000000 00:00 0 
+7f7560000000-7f7560021000 rw-p 00000000 00:00 0 
+7f7560021000-7f7564000000 ---p 00000000 00:00 0 
+7f7564000000-7f7564021000 rw-p 00000000 00:00 0 
+7f7564021000-7f7568000000 ---p 00000000 00:00 0 
+7f7568000000-7f7568021000 rw-p 00000000 00:00 0 
+7f7568021000-7f756c000000 ---p 00000000 00:00 0 
+7f756c000000-7f756c021000 rw-p 00000000 00:00 0 
+7f756c021000-7f7570000000 ---p 00000000 00:00 0 
+7f7570017000-7f75703bf000 rw-p 00000000 00:00 0 
+7f75703bf000-7f7570599000 r--s 03d6b000 08:02 4858255                    /opt/java/jdk8.x86_64/jre/lib/rt.jar
+7f7570599000-7f75709d9000 rw-p 00000000 00:00 0 
+7f75709d9000-7f7570d99000 ---p 00000000 00:00 0 
+7f7570d99000-7f75b0be0000 rw-p 00000000 00:00 0 
+7f75b0be0000-7f75b0be1000 ---p 00000000 00:00 0 
+7f75b0be1000-7f75b0ce1000 rw-p 00000000 00:00 0 
+7f75b0ce1000-7f75b0ce2000 ---p 00000000 00:00 0 
+7f75b0ce2000-7f75b0de2000 rw-p 00000000 00:00 0 
+7f75b0de2000-7f75b0de3000 ---p 00000000 00:00 0 
+7f75b0de3000-7f75b0ee3000 rw-p 00000000 00:00 0 
+7f75b0ee3000-7f75b0ee4000 ---p 00000000 00:00 0 
+7f75b0ee4000-7f75b0fe4000 rw-p 00000000 00:00 0 
+7f75b0fe4000-7f75b0fe5000 ---p 00000000 00:00 0 
+7f75b0fe5000-7f75b10e5000 rw-p 00000000 00:00 0 
+7f75b10e5000-7f75b10e6000 ---p 00000000 00:00 0 
+7f75b10e6000-7f75b11e6000 rw-p 00000000 00:00 0 
+7f75b11e6000-7f75b11e7000 ---p 00000000 00:00 0 
+7f75b11e7000-7f75b12e7000 rw-p 00000000 00:00 0 
+7f75b12e7000-7f75b12e8000 ---p 00000000 00:00 0 
+7f75b12e8000-7f75b13e8000 rw-p 00000000 00:00 0 
+7f75b13e8000-7f75b13e9000 ---p 00000000 00:00 0 
+7f75b13e9000-7f75b14e9000 rw-p 00000000 00:00 0 
+7f75b14e9000-7f75b14ea000 ---p 00000000 00:00 0 
+7f75b14ea000-7f75b15ea000 rw-p 00000000 00:00 0 
+7f75b15ea000-7f75b15eb000 ---p 00000000 00:00 0 
+7f75b15eb000-7f75b16eb000 rw-p 00000000 00:00 0 
+7f75b16eb000-7f75b16ec000 ---p 00000000 00:00 0 
+7f75b16ec000-7f75b17ec000 rw-p 00000000 00:00 0 
+7f75b17ec000-7f75b17ed000 ---p 00000000 00:00 0 
+7f75b17ed000-7f75b18ed000 rw-p 00000000 00:00 0 
+7f75b18ed000-7f75b18ee000 ---p 00000000 00:00 0 
+7f75b18ee000-7f75b19ee000 rw-p 00000000 00:00 0 
+7f75b19ee000-7f75b19ef000 ---p 00000000 00:00 0 
+7f75b19ef000-7f75b1aef000 rw-p 00000000 00:00 0 
+7f75b1aef000-7f75b1af0000 ---p 00000000 00:00 0 
+7f75b1af0000-7f75b1bf0000 rw-p 00000000 00:00 0 
+7f75b1bf0000-7f75b1bf1000 ---p 00000000 00:00 0 
+7f75b1bf1000-7f75b1cf1000 rw-p 00000000 00:00 0 
+7f75b1cf1000-7f75b1cf2000 ---p 00000000 00:00 0 
+7f75b1cf2000-7f75b1df2000 rw-p 00000000 00:00 0 
+7f75b1df2000-7f75b1df3000 ---p 00000000 00:00 0 
+7f75b1df3000-7f75b1ef3000 rw-p 00000000 00:00 0 
+7f75b1ef3000-7f75b1ef4000 ---p 00000000 00:00 0 
+7f75b1ef4000-7f75b1ff4000 rw-p 00000000 00:00 0 
+7f75b1ff4000-7f75b1ff5000 ---p 00000000 00:00 0 
+7f75b1ff5000-7f75b20f5000 rw-p 00000000 00:00 0 
+7f75b20f5000-7f75b20f6000 ---p 00000000 00:00 0 
+7f75b20f6000-7f75b21f6000 rw-p 00000000 00:00 0 
+7f75b21f6000-7f75b21f7000 ---p 00000000 00:00 0 
+7f75b21f7000-7f75b22f7000 rw-p 00000000 00:00 0 
+7f75b22f7000-7f75b22f8000 ---p 00000000 00:00 0 
+7f75b22f8000-7f75b23f8000 rw-p 00000000 00:00 0 
+7f75b23f8000-7f75b23f9000 ---p 00000000 00:00 0 
+7f75b23f9000-7f75b24f9000 rw-p 00000000 00:00 0 
+7f75b24f9000-7f75b24fa000 ---p 00000000 00:00 0 
+7f75b24fa000-7f75b25fa000 rw-p 00000000 00:00 0 
+7f75b25fa000-7f75b25fb000 ---p 00000000 00:00 0 
+7f75b25fb000-7f75b26fb000 rw-p 00000000 00:00 0 
+7f75b26fb000-7f75b26fc000 ---p 00000000 00:00 0 
+7f75b26fc000-7f75b27fc000 rw-p 00000000 00:00 0 
+7f75b27fc000-7f75b27fd000 ---p 00000000 00:00 0 
+7f75b27fd000-7f75b28fd000 rw-p 00000000 00:00 0 
+7f75b28fd000-7f75b28fe000 ---p 00000000 00:00 0 
+7f75b28fe000-7f75b29fe000 rw-p 00000000 00:00 0 
+7f75b29fe000-7f75b29ff000 ---p 00000000 00:00 0 
+7f75b29ff000-7f75b2aff000 rw-p 00000000 00:00 0 
+7f75b2aff000-7f75b2b00000 ---p 00000000 00:00 0 
+7f75b2b00000-7f75b2eab000 rw-p 00000000 00:00 0 
+7f75b2eab000-7f75b5400000 ---p 00000000 00:00 0 
+7f75b5400000-7f75b56ab000 rw-p 00000000 00:00 0 
+7f75b56ab000-7f75b7bff000 ---p 00000000 00:00 0 
+7f75b7bff000-7f75b7d55000 rw-p 00000000 00:00 0 
+7f75b7d55000-7f75b8fff000 ---p 00000000 00:00 0 
+7f75b8fff000-7f75b9000000 rw-p 00000000 00:00 0 
+7f75b9000000-7f75b9420000 rwxp 00000000 00:00 0 
+7f75b9420000-7f75c8000000 ---p 00000000 00:00 0 
+7f75c8000000-7f75c848e000 rw-p 00000000 00:00 0 
+7f75c848e000-7f75cc000000 ---p 00000000 00:00 0 
+7f75cc016000-7f75cc0ce000 rw-p 00000000 00:00 0 
+7f75cc0ce000-7f75cc0cf000 ---p 00000000 00:00 0 
+7f75cc0cf000-7f75cc1cf000 rw-p 00000000 00:00 0 
+7f75cc1cf000-7f75cc1d0000 ---p 00000000 00:00 0 
+7f75cc1d0000-7f75cc2d0000 rw-p 00000000 00:00 0 
+7f75cc2d0000-7f75cc2d1000 ---p 00000000 00:00 0 
+7f75cc2d1000-7f75cc3d1000 rw-p 00000000 00:00 0 
+7f75cc3d1000-7f75cc3d2000 ---p 00000000 00:00 0 
+7f75cc3d2000-7f75cc4d2000 rw-p 00000000 00:00 0 
+7f75cc4d2000-7f75cc4d3000 ---p 00000000 00:00 0 
+7f75cc4d3000-7f75cc5d3000 rw-p 00000000 00:00 0 
+7f75cc5d3000-7f75cc5d4000 ---p 00000000 00:00 0 
+7f75cc5d4000-7f75cc6d4000 rw-p 00000000 00:00 0 
+7f75cc6d4000-7f75cc6d5000 ---p 00000000 00:00 0 
+7f75cc6d5000-7f75cc7d5000 rw-p 00000000 00:00 0 
+7f75cc7d5000-7f75cc7d6000 ---p 00000000 00:00 0 
+7f75cc7d6000-7f75cc8d6000 rw-p 00000000 00:00 0 
+7f75cc8d6000-7f75cc8d7000 ---p 00000000 00:00 0 
+7f75cc8d7000-7f75cc9d7000 rw-p 00000000 00:00 0 
+7f75cc9d7000-7f75cc9d8000 ---p 00000000 00:00 0 
+7f75cc9d8000-7f75ccad8000 rw-p 00000000 00:00 0 
+7f75ccad8000-7f75ccad9000 ---p 00000000 00:00 0 
+7f75ccad9000-7f75ccbea000 rw-p 00000000 00:00 0 
+7f75ccbea000-7f75ccf99000 ---p 00000000 00:00 0 
+7f75ccf99000-7f75ccfb4000 r-xp 00000000 08:02 4986417                    /opt/java/jdk8.x86_64/jre/lib/amd64/libzip.so
+7f75ccfb4000-7f75cd1b4000 ---p 0001b000 08:02 4986417                    /opt/java/jdk8.x86_64/jre/lib/amd64/libzip.so
+7f75cd1b4000-7f75cd1b5000 rw-p 0001b000 08:02 4986417                    /opt/java/jdk8.x86_64/jre/lib/amd64/libzip.so
+7f75cd1b5000-7f75cd9ba000 r--s 00000000 08:02 1063585                    /var/lib/sss/mc/passwd
+7f75cd9ba000-7f75cd9c2000 r-xp 00000000 08:02 3420987                    /usr/lib64/libnss_sss.so.2
+7f75cd9c2000-7f75cdbc1000 ---p 00008000 08:02 3420987                    /usr/lib64/libnss_sss.so.2
+7f75cdbc1000-7f75cdbc2000 r--p 00007000 08:02 3420987                    /usr/lib64/libnss_sss.so.2
+7f75cdbc2000-7f75cdbc3000 rw-p 00008000 08:02 3420987                    /usr/lib64/libnss_sss.so.2
+7f75cdbc3000-7f75cdbcf000 r-xp 00000000 08:02 3411000                    /usr/lib64/libnss_files-2.17.so
+7f75cdbcf000-7f75cddce000 ---p 0000c000 08:02 3411000                    /usr/lib64/libnss_files-2.17.so
+7f75cddce000-7f75cddcf000 r--p 0000b000 08:02 3411000                    /usr/lib64/libnss_files-2.17.so
+7f75cddcf000-7f75cddd0000 rw-p 0000c000 08:02 3411000                    /usr/lib64/libnss_files-2.17.so
+7f75cddd0000-7f75cddd6000 rw-p 00000000 00:00 0 
+7f75cddd6000-7f75cde01000 r-xp 00000000 08:02 4986411                    /opt/java/jdk8.x86_64/jre/lib/amd64/libjava.so
+7f75cde01000-7f75ce000000 ---p 0002b000 08:02 4986411                    /opt/java/jdk8.x86_64/jre/lib/amd64/libjava.so
+7f75ce000000-7f75ce002000 rw-p 0002a000 08:02 4986411                    /opt/java/jdk8.x86_64/jre/lib/amd64/libjava.so
+7f75ce002000-7f75ce00f000 r-xp 00000000 08:02 4986416                    /opt/java/jdk8.x86_64/jre/lib/amd64/libverify.so
+7f75ce00f000-7f75ce20f000 ---p 0000d000 08:02 4986416                    /opt/java/jdk8.x86_64/jre/lib/amd64/libverify.so
+7f75ce20f000-7f75ce211000 rw-p 0000d000 08:02 4986416                    /opt/java/jdk8.x86_64/jre/lib/amd64/libverify.so
+7f75ce211000-7f75ce218000 r-xp 00000000 08:02 3411012                    /usr/lib64/librt-2.17.so
+7f75ce218000-7f75ce417000 ---p 00007000 08:02 3411012                    /usr/lib64/librt-2.17.so
+7f75ce417000-7f75ce418000 r--p 00006000 08:02 3411012                    /usr/lib64/librt-2.17.so
+7f75ce418000-7f75ce419000 rw-p 00007000 08:02 3411012                    /usr/lib64/librt-2.17.so
+7f75ce419000-7f75ce51a000 r-xp 00000000 08:02 3410990                    /usr/lib64/libm-2.17.so
+7f75ce51a000-7f75ce719000 ---p 00101000 08:02 3410990                    /usr/lib64/libm-2.17.so
+7f75ce719000-7f75ce71a000 r--p 00100000 08:02 3410990                    /usr/lib64/libm-2.17.so
+7f75ce71a000-7f75ce71b000 rw-p 00101000 08:02 3410990                    /usr/lib64/libm-2.17.so
+7f75ce71b000-7f75cf3f7000 r-xp 00000000 08:02 4986393                    /opt/java/jdk8.x86_64/jre/lib/amd64/server/libjvm.so
+7f75cf3f7000-7f75cf5f7000 ---p 00cdc000 08:02 4986393                    /opt/java/jdk8.x86_64/jre/lib/amd64/server/libjvm.so
+7f75cf5f7000-7f75cf6d1000 rw-p 00cdc000 08:02 4986393                    /opt/java/jdk8.x86_64/jre/lib/amd64/server/libjvm.so
+7f75cf6d1000-7f75cf71c000 rw-p 00000000 00:00 0 
+7f75cf71c000-7f75cf8de000 r-xp 00000000 08:02 3410982                    /usr/lib64/libc-2.17.so
+7f75cf8de000-7f75cfade000 ---p 001c2000 08:02 3410982                    /usr/lib64/libc-2.17.so
+7f75cfade000-7f75cfae2000 r--p 001c2000 08:02 3410982                    /usr/lib64/libc-2.17.so
+7f75cfae2000-7f75cfae4000 rw-p 001c6000 08:02 3410982                    /usr/lib64/libc-2.17.so
+7f75cfae4000-7f75cfae9000 rw-p 00000000 00:00 0 
+7f75cfae9000-7f75cfaeb000 r-xp 00000000 08:02 3410988                    /usr/lib64/libdl-2.17.so
+7f75cfaeb000-7f75cfceb000 ---p 00002000 08:02 3410988                    /usr/lib64/libdl-2.17.so
+7f75cfceb000-7f75cfcec000 r--p 00002000 08:02 3410988                    /usr/lib64/libdl-2.17.so
+7f75cfcec000-7f75cfced000 rw-p 00003000 08:02 3410988                    /usr/lib64/libdl-2.17.so
+7f75cfced000-7f75cfd03000 r-xp 00000000 08:02 4858122                    /opt/java/jdk8.x86_64/lib/amd64/jli/libjli.so
+7f75cfd03000-7f75cff02000 ---p 00016000 08:02 4858122                    /opt/java/jdk8.x86_64/lib/amd64/jli/libjli.so
+7f75cff02000-7f75cff03000 rw-p 00015000 08:02 4858122                    /opt/java/jdk8.x86_64/lib/amd64/jli/libjli.so
+7f75cff03000-7f75cff1a000 r-xp 00000000 08:02 3411008                    /usr/lib64/libpthread-2.17.so
+7f75cff1a000-7f75d0119000 ---p 00017000 08:02 3411008                    /usr/lib64/libpthread-2.17.so
+7f75d0119000-7f75d011a000 r--p 00016000 08:02 3411008                    /usr/lib64/libpthread-2.17.so
+7f75d011a000-7f75d011b000 rw-p 00017000 08:02 3411008                    /usr/lib64/libpthread-2.17.so
+7f75d011b000-7f75d011f000 rw-p 00000000 00:00 0 
+7f75d011f000-7f75d0141000 r-xp 00000000 08:02 3410975                    /usr/lib64/ld-2.17.so
+7f75d0148000-7f75d01f2000 rw-p 00000000 00:00 0 
+7f75d01f2000-7f75d01f6000 ---p 00000000 00:00 0 
+7f75d01f6000-7f75d02f7000 rw-p 00000000 00:00 0 
+7f75d02ff000-7f75d0303000 rw-p 00000000 00:00 0 
+7f75d0303000-7f75d030d000 r--s 00116000 08:02 4858323                    /opt/java/jdk8.x86_64/jre/lib/ext/localedata.jar
+7f75d030d000-7f75d0335000 rw-p 00000000 00:00 0 
+7f75d0335000-7f75d033d000 rw-s 00000000 08:02 1219050                    /tmp/hsperfdata_p118640/24978
+7f75d033d000-7f75d033e000 rw-p 00000000 00:00 0 
+7f75d033e000-7f75d033f000 r--p 00000000 00:00 0 
+7f75d033f000-7f75d0340000 rw-p 00000000 00:00 0 
+7f75d0340000-7f75d0341000 r--p 00021000 08:02 3410975                    /usr/lib64/ld-2.17.so
+7f75d0341000-7f75d0342000 rw-p 00022000 08:02 3410975                    /usr/lib64/ld-2.17.so
+7f75d0342000-7f75d0343000 rw-p 00000000 00:00 0 
+7ffc1642c000-7ffc1644e000 rw-p 00000000 00:00 0                          [stack]
+7ffc1652d000-7ffc1652f000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+java_command: minicpbp.examples.pitchModel cp_pitch_100_60.dat 1 60 token_rhythm.dat 0.4 1 pitchTokenSingle:1:5;pitchAllSame:1:1;Sep-pitchSame:1:2:5:6;pitchTokenMultiple:0:5:7:9; 2
+java_class_path (initial): ../../../target/minicpbp-1.0.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/opt/java/jdk8.x86_64
+PATH=~/anaconda3/bin:/home/usagers/p118640/.vscode-server-insiders/bin/b380da4ef1ee00e224a15c1d4d9793e27c2b6302/bin/remote-cli:~/anaconda3/bin:~/anaconda3/bin:/usagers4/p118640/anaconda3/bin:/usagers4/p118640/anaconda3/condabin:/usr/lib64/qt-3.3/bin:/usagers4/p118640/perl5/bin:/usr/local/bin:/usr/bin:/opt/ansys_inc/v181/CFX/bin:/opt/java/jdk8.x86_64/bin:/opt/MATLAB/R2018a/bin:/usr/local/sbin:/usr/sbin:/opt/ansys_inc/v181/CFX/bin:/opt/java/jdk8.x86_64/bin:/opt/MATLAB/R2018a/bin:/usagers4/p118640/.local/bin:/usagers4/p118640/bin:/opt/ansys_inc/v181/CFX/bin:/opt/java/jdk8.x86_64/bin:/opt/MATLAB/R2018a/bin
+LD_LIBRARY_PATH=:/usagers4/p118640/anaconda3/lib/python3.10/site-packages/jep-4.1.1-py3.10-linux-x86_64.egg/jep:/usagers4/p118640/anaconda3/lib/python3.10/site-packages/jep-4.1.1-py3.10-linux-x86_64.egg/jep
+SHELL=/bin/bash
+DISPLAY=localhost:10.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xad2a40], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xad2a40], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x92be70], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x92d270], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x92d270], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x92d270], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x92d270], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:CentOS Linux release 7.6.1810 (Core) 
+
+uname:Linux 3.10.0-957.1.3.el7.x86_64 #1 SMP Thu Nov 29 14:49:43 UTC 2018 x86_64
+libc:glibc 2.17 NPTL 2.17 
+rlimit: STACK 8192k, CORE 0k, NPROC 4096, NOFILE 4096, AS infinity
+load average:3,89 6,22 3,23
+
+/proc/meminfo:
+MemTotal:       528061072 kB
+MemFree:        45527616 kB
+MemAvailable:   401766324 kB
+Buffers:         1066048 kB
+Cached:         352739768 kB
+SwapCached:            0 kB
+Active:         450477088 kB
+Inactive:       21334164 kB
+Active(anon):   118573192 kB
+Inactive(anon):   286136 kB
+Active(file):   331903896 kB
+Inactive(file): 21048028 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:      17407992 kB
+SwapFree:       17407992 kB
+Dirty:               496 kB
+Writeback:             0 kB
+AnonPages:      118002460 kB
+Mapped:           323176 kB
+Shmem:            853880 kB
+Slab:            7011704 kB
+SReclaimable:    4351160 kB
+SUnreclaim:      2660544 kB
+KernelStack:       24144 kB
+PageTables:       293184 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    281438528 kB
+Committed_AS:   177351144 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:     1121096 kB
+VmallocChunk:   33955776508 kB
+HardwareCorrupted:    24 kB
+AnonHugePages:  110845952 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      481256 kB
+DirectMap2M:    29796352 kB
+DirectMap1G:    508559360 kB
+
+
+CPU:total 64 (initial active 64) (16 cores per cpu, 2 threads per core) family 6 model 63 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 0
+cpu cores	: 16
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 1
+cpu cores	: 16
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 2
+cpu cores	: 16
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 3
+cpu cores	: 16
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 4
+cpu cores	: 16
+apicid		: 8
+initial apicid	: 8
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 8
+cpu cores	: 16
+apicid		: 16
+initial apicid	: 16
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 9
+cpu cores	: 16
+apicid		: 18
+initial apicid	: 18
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 10
+cpu cores	: 16
+apicid		: 20
+initial apicid	: 20
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 8
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 11
+cpu cores	: 16
+apicid		: 22
+initial apicid	: 22
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 9
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 16
+cpu cores	: 16
+apicid		: 32
+initial apicid	: 32
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 10
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 17
+cpu cores	: 16
+apicid		: 34
+initial apicid	: 34
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 11
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 18
+cpu cores	: 16
+apicid		: 36
+initial apicid	: 36
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 12
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 20
+cpu cores	: 16
+apicid		: 40
+initial apicid	: 40
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 13
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 24
+cpu cores	: 16
+apicid		: 48
+initial apicid	: 48
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 14
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 25
+cpu cores	: 16
+apicid		: 50
+initial apicid	: 50
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 15
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 16
+core id		: 27
+cpu cores	: 16
+apicid		: 54
+initial apicid	: 54
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5000.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 16
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 0
+cpu cores	: 16
+apicid		: 64
+initial apicid	: 64
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 17
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 1
+cpu cores	: 16
+apicid		: 66
+initial apicid	: 66
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 18
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 2
+cpu cores	: 16
+apicid		: 68
+initial apicid	: 68
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 19
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 3
+cpu cores	: 16
+apicid		: 70
+initial apicid	: 70
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 20
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 4
+cpu cores	: 16
+apicid		: 72
+initial apicid	: 72
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 21
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 8
+cpu cores	: 16
+apicid		: 80
+initial apicid	: 80
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 22
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 9
+cpu cores	: 16
+apicid		: 82
+initial apicid	: 82
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 23
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 10
+cpu cores	: 16
+apicid		: 84
+initial apicid	: 84
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 24
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 11
+cpu cores	: 16
+apicid		: 86
+initial apicid	: 86
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 25
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 16
+cpu cores	: 16
+apicid		: 96
+initial apicid	: 96
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 26
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 17
+cpu cores	: 16
+apicid		: 98
+initial apicid	: 98
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 27
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 18
+cpu cores	: 16
+apicid		: 100
+initial apicid	: 100
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 28
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 20
+cpu cores	: 16
+apicid		: 104
+initial apicid	: 104
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 29
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 24
+cpu cores	: 16
+apicid		: 112
+initial apicid	: 112
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 30
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 25
+cpu cores	: 16
+apicid		: 114
+initial apicid	: 114
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 31
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 16
+core id		: 27
+cpu cores	: 16
+apicid		: 118
+initial apicid	: 118
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5007.57
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 32
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 0
+cpu cores	: 16
+apicid		: 128
+initial apicid	: 128
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 33
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 1
+cpu cores	: 16
+apicid		: 130
+initial apicid	: 130
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 34
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 2
+cpu cores	: 16
+apicid		: 132
+initial apicid	: 132
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 35
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 3
+cpu cores	: 16
+apicid		: 134
+initial apicid	: 134
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 36
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 4
+cpu cores	: 16
+apicid		: 136
+initial apicid	: 136
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 37
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 8
+cpu cores	: 16
+apicid		: 144
+initial apicid	: 144
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 38
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 9
+cpu cores	: 16
+apicid		: 146
+initial apicid	: 146
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 39
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 10
+cpu cores	: 16
+apicid		: 148
+initial apicid	: 148
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 40
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 11
+cpu cores	: 16
+apicid		: 150
+initial apicid	: 150
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 41
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 16
+cpu cores	: 16
+apicid		: 160
+initial apicid	: 160
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 42
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 17
+cpu cores	: 16
+apicid		: 162
+initial apicid	: 162
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 43
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 18
+cpu cores	: 16
+apicid		: 164
+initial apicid	: 164
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 44
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 20
+cpu cores	: 16
+apicid		: 168
+initial apicid	: 168
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 45
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 24
+cpu cores	: 16
+apicid		: 176
+initial apicid	: 176
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 46
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 25
+cpu cores	: 16
+apicid		: 178
+initial apicid	: 178
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 47
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 2
+siblings	: 16
+core id		: 27
+cpu cores	: 16
+apicid		: 182
+initial apicid	: 182
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5026.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 48
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 0
+cpu cores	: 16
+apicid		: 192
+initial apicid	: 192
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 49
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2488.250
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 1
+cpu cores	: 16
+apicid		: 194
+initial apicid	: 194
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 50
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 2
+cpu cores	: 16
+apicid		: 196
+initial apicid	: 196
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 51
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 3
+cpu cores	: 16
+apicid		: 198
+initial apicid	: 198
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 52
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 4
+cpu cores	: 16
+apicid		: 200
+initial apicid	: 200
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 53
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 8
+cpu cores	: 16
+apicid		: 208
+initial apicid	: 208
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 54
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 9
+cpu cores	: 16
+apicid		: 210
+initial apicid	: 210
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 55
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 10
+cpu cores	: 16
+apicid		: 212
+initial apicid	: 212
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 56
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.542
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 11
+cpu cores	: 16
+apicid		: 214
+initial apicid	: 214
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 57
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 16
+cpu cores	: 16
+apicid		: 224
+initial apicid	: 224
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 58
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 17
+cpu cores	: 16
+apicid		: 226
+initial apicid	: 226
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 59
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 18
+cpu cores	: 16
+apicid		: 228
+initial apicid	: 228
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 60
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2499.847
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 20
+cpu cores	: 16
+apicid		: 232
+initial apicid	: 232
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 61
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 24
+cpu cores	: 16
+apicid		: 240
+initial apicid	: 240
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 62
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 25
+cpu cores	: 16
+apicid		: 242
+initial apicid	: 242
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 63
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E7-8867 v3 @ 2.50GHz
+stepping	: 4
+microcode	: 0x12
+cpu MHz		: 2500.000
+cache size	: 46080 KB
+physical id	: 3
+siblings	: 16
+core id		: 27
+cpu cores	: 16
+apicid		: 246
+initial apicid	: 246
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 15
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm xsaveopt cqm_llc cqm_occup_llc dtherm arat pln pts spec_ctrl intel_stibp flush_l1d
+bogomips	: 5029.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 528061072k(45518536k free), swap 17407992k(17407992k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.181-b13) for linux-amd64 JRE (1.8.0_181-b13), built on Jul  7 2018 00:56:38 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Wed Jul  5 22:49:02 2023
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

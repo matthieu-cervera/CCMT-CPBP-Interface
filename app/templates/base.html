@@ -1,0 +1,75 @@
+<!-- base.html : this is the navbar at the top of the website. It is included in all other templates-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="MIDI file generator provided by Polytechnique Montréal">
+    <meta name="keywords"
+        content="Magenta, MIDI, Poly, Polytechnique, Music Generator, Sequence Generator, Montreal, Montréal">
+    <meta name="author" content="Laboratoire Quosséça">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="yes">
+    <title>Poly music generator </title>
+    <link rel="icon" type="image/x-icon" href="static/images/logo_poly.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/pablostyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body id="bodyID">
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark border-dark" id="navid"
+            style="background-color: #1A6DAC; height: 10vh;">
+            <div class="container-fluid align-items-center">
+                <a class="navbar-brand" href="https://www.polymtl.ca/" target="_blank">
+                    <img src="static/images/logo_poly.png" class="img-thumbnail align-text-right d-inline-block" alt="Logo"
+                        width="55" height="55" style="margin-right: 20px;">
+                    Polytechnique Montréal
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-5">
+                            <a class="btn btn-outline-light btn-lg btn-block" id="btn-home" onclick ="document.location.href='{{url_for('homepage_not_logged')}}';"> <i
+                                    class="fa fa-home fa-lg"></i></a>
+                        </li>
+
+                        <li class="nav-item mx-5">
+                            <a class="btn btn-outline-light btn-lg btn-block" id="btn-back-to-top"> <i
+                                    class="fa fa-arrow-up fa-lg"></i></a>
+                        </li>
+                        
+                        <li class="nav-item mx-5">
+                            <a class="btn btn-outline-light btn-lg btn-block loginButton" id="btn-user-nav"> <i
+                                    class="fa fa-user fa-lg"></i></a>
+                        </li>
+                        <li class="nav-item mx-5">
+                            <a class="btn btn-outline-light btn-lg btn-block" id="language" onclick ="document.location.href='{{url_for('turing_test')}}';"> <i
+                                    class="fa fa-puzzle-piece fa-lg"></i></a>
+                        </li>
+                        <li class="nav-item mx-5">
+                            <a class="btn btn-outline-light btn-lg btn-block"
+                                href="https://www.polymtl.ca/labo-quosseca/en" target="_blank"> <i
+                                    class="fa fa-info fa-lg"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <!--Overlay-->
+        <div class="overlayPopUp" style="position: absolute;"></div>
+        <!---->
+        </nav>
+
+        {% include 'flashes.html' %}
+
+    </header>
+    
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

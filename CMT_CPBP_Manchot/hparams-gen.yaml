@@ -1,0 +1,93 @@
+asset_root: ./results
+data_io:
+  dataset:
+    data_ratio:
+    - 0.8
+    - 0.1
+    - 0.1
+    num_worker: 4
+  loader:
+    batch_size: 64
+    drop_last: true
+    num_workers: 8
+    pin_memory: true
+    shuffle: true
+  path: ./pkl_files_EWLD/instance_pkl_8bars_fpb16_48p_ckey
+experiment:
+  attention_map: false
+  beam_mode: pitch
+  beam_width: 0
+  gen_groundtruth_melody: false
+  gen_groundtruth_mid: false
+  lr: 0.0001
+  max_epoch: 101
+  metrics:
+  - accuracy
+  num_prime: 16
+  num_sample: 1
+  restore_rhythm:
+    epoch: 100
+    idx: 2
+  rhythm_only: false
+  sampling_java: true
+  sampling_java_seed: 4
+  topk: 5
+  verbose: true
+model:
+  attention_dropout: 0.2
+  chord_emb_size: 128
+  cp:
+    minicpbp_path: ./minicpbp
+    pitch:
+      activate: true
+      model:
+        k: 1
+        name: pitchModel
+        userconstraints: Sep-pitchSame:1:2:5:6;pitchForceMultiple:7:8:0:2:4;
+      weight_variation:
+        ml_weight: 1.0
+        nb_bars_group: 6
+        technique: token_down
+        weight_max: 1.0
+        weight_min: 0.4
+        weight_per_bar: []
+        weight_ratio: 0.985
+    rhythm:
+      activate: true
+      model:
+        min_nb_notes: 8
+        name: durationModel
+        userconstraints: Sep-durationSameStructure:1:2:5:6;
+      weight_variation:
+        ml_weight: 1.0
+        nb_bars_group: 6
+        technique: constant
+        weight_max: 1.0
+        weight_min: 0.4
+        weight_per_bar: []
+        weight_ratio: 0.9943
+  frame_per_bar: 16
+  hidden_dim: 512
+  input_dropout: 0.2
+  key_dim: 512
+  layer_dropout: 0.2
+  num_bars: 8
+  num_heads: 16
+  num_layers: 8
+  num_pitch: 50
+  pitch_emb_size: 256
+  value_dim: 512
+optimizer:
+  adam:
+    amsgrad: false
+    betas:
+    - 0.9
+    - 0.999
+    eps: 1.0e-08
+    weight_decay: 0.0
+  rmsprop:
+    beta: 0
+  sgd:
+    dampening: 0
+    momentum: 0
+    weight_decay: 0.0

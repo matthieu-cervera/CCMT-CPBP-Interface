@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+<!-- turing_test.html : shows the turing test for one sample.-->
+
+{% block content %}
+    <main>
+
+        <div class="container-fluid" style="height: 120px;">
+            </div>
+
+            <div class="container-fluid border-bottom">
+                <div class="row align-items-center">
+                    <div class="col-8 text-center mx-0">
+                        <h2 class="text-left display-2" id="title-1"><b>Turing Test</b></h2>
+                        <div>
+                            <p class="text-muted display-6 text-center mb-0 mt-4" id="title-2">Listen to the midi file. Is it AI generated ?</p>
+                        </div>
+                   
+                        <midi-player src="{{ midi_file_path }}" sound-font></midi-player>
+
+                    </div>
+
+
+
+                    <div class="col-4 mb-0">
+                        <img src="static/images/notes.png" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid" style="height: 60px;"></div>
+
+            <div class="container border rounded mb-4 chooseMIDI">
+                <div class="row m-4">
+                    <div class="form-check border rounded mb-4">
+                        <input class="form-check-input m-4" type="radio" name="radioTuring" id="IDAI" value="1">
+                        <label class="form-check-label my-3" for="IDAI">
+                            <h4>This is AI generated</h4>
+                        </label>
+                    </div>
+                    <div class="form-check border rounded">
+                        <input class="form-check-input m-4" type="radio" name="radioTuring" id="IDhuman" value="0">
+                        <label class="form-check-label my-3" for="IDhuman">
+                          <h4>This is a processed sample</h4>
+                        </label>
+                    </div>
+                </div>
+                <div class="row m-4 text-center">
+                    <button type="button" class="btn btn-lg btn-dark" id="answerButton">
+                        Continue
+                    </button>
+                </div>
+            </div>
+       
+        <script type='text/javascript' src='//www.midijs.net/lib/midi.js'></script>
+        <script>
+            var midiFilePath = "{{ midi_file_path }}";
+        </script>
+
+
+        <div class="container-fluid" style="height: 120px;">
+        </div>
+
+
+<div id="output-div"></div>
+
+
+
+
+        <div class="container-fluid" style="height: 80px;"></div>
+        <div class="container" style="width: 70%;">
+        </div>
+        <div class="container-fluid" style="height: 40px;">
+        </div>
+        <div class="container-fluid" style="height: 40px;"></div>
+        <!--User Status Form-->
+        {% include 'user_status.html' %}
+        <!---->
+        <!--Overlay-->
+        <div class="overlayPopUp" style="position: fixed;"></div>
+        <!---->
+    </main>
+    <footer class="text-center text-white border-top" style="background-color: #5f99c5; ">
+        <div class="container-fluid justify-content-center">
+            <div class="row justify-content-center">
+                <div class="col-4"></div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #3b5998;"
+                        href="https://www.facebook.com/polymtl" target="_blank" role="button"><i
+                            class="fa fa-facebook-f fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #333333;"
+                        href="https://www.youtube.com/@polymtlvideos" target="_blank" role="button"><i
+                            class="fa fa-youtube fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #dd4b39;"
+                        href="https://www.polymtl.ca/" target="_blank" role="button"><i class="fa fa-google fa-lg"></i>
+                    </a>
+                    </button>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #55acee;"
+                        href="https://twitter.com/polymtl" target="_blank" role="button"><i
+                            class="fa fa-twitter fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="text-center text-white p-3" style="background-color: #1A6DAC">
+                    © 2022 Copyright:
+                    <a class="text-white" href="https://www.polymtl.ca/" target="_blank">Polytechnique Montréal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="static/js/config.js"></script>
+    <script type="text/javascript" src="static/js/turing_test.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.22.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
+
+
+
+    {% endblock %}
+
+
+

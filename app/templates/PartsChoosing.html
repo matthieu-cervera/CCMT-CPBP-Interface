@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+<!-- PartsChoosing.html : page where the user chooses the constraints according to the sample-->
+
+{% block content %}
+    <main>
+
+        <!--SELECT MELODY FORM-->
+        <div class="container py-4 rounded popup-2" style="background-color: white;" id="MelodyFormID">
+            <div class="row">
+                <h1 class="display-4 fw-bold text-center mb-2">Select melody</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-1"></div>
+                <div class="col-7 align-items-center border">
+                    <div class="row mt-2 mb-4">
+                        <h2>Current MIDI File</h2>
+                        <label>{{ CurrentMelodyName }}</label>    
+                    </div>
+                    <div class="row mb-4">
+                        <h2>Number of parts</h2>
+                        <label>{{ CurrentMelodyNumberParts }}</label>
+                    </div>
+                    <div class="row mb-4">
+                        <h2>Part to use as the melody</h2>
+                        <label for="SelectPart">{{ PartsRange }}</label>
+                        <form class="mt-2" action="{{ url_for('ChooseParts') }}" method="POST">
+                            <input name="text" placeholder="Enter number" id="inputkeyboard">
+                            <input type="submit" value="Send" class="disabled-general" id="sendButtonID">
+                        </form>
+                    </div>   
+                </div>
+                <div class="col-4 justify-items-center">
+                    <img src="static/images/notes.png" class="img-fluid"
+                        style="margin-left: auto; margin-right: auto; display: block;">
+                </div>
+            </div>
+        </div>
+        <!---->
+        {% include 'user_status.html' %}
+
+        <!--Overlay-->
+        <div class="overlayPopUp active" style="position: fixed;"></div>
+        <!---->
+    </main>
+    <!--Footer is only sticked to the bottom here, that's why in the Main Page we do not have the class 'footer' added-->
+    <footer class="text-center text-white border-top footer" style="background-color: #5f99c5; ">
+        <div class="container-fluid justify-content-center">
+            <div class="row justify-content-center">
+                <div class="col-4"></div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #3b5998;"
+                        href="https://www.facebook.com/polymtl" target="_blank" role="button"><i
+                            class="fa fa-facebook-f fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #333333;"
+                        href="https://www.youtube.com/@polymtlvideos" target="_blank" role="button"><i
+                            class="fa fa-youtube fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #dd4b39;"
+                        href="https://www.polymtl.ca/" target="_blank" role="button"><i class="fa fa-google fa-lg"></i>
+                    </a>
+                    </button>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #55acee;"
+                        href="https://twitter.com/polymtl" target="_blank" role="button"><i
+                            class="fa fa-twitter fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="text-center text-white p-3" style="background-color: #1A6DAC">
+                    © 2022 Copyright:
+                    <a class="text-white" href="https://www.polymtl.ca/" target="_blank">Polytechnique Montréal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+        integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"
+        integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
+        integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"
+        integrity="sha512-RvUydNGlqYJapy0t4AH8hDv/It+zKsv4wOQGb+iOnEfa6NnF2fzjXgRy+FDjSpMfC3sjokNUzsfYZaZ8QAwIxg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"
+        integrity="sha512-5/OHwmQzDSBS0Ous4/hlYoWLHd06/d2r7LdKZQVBXOA6PvOqWVXtdboiLTU7lQTGyVoKVTNkwi0ol4gHGlw5ww=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"
+        integrity="sha512-pvDW4tehKKsohH97164HwKwRGFpzayEFWTVbk8HuUoLIQ7Jp+WLN5XYokVuoCj2aT6dy8ihbW8SRTG1k0W4mSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"
+        integrity="sha512-tSIDeirKC6suYILHqqPuZH3s0MvD4a5vCHXhBIcdmq4gQXZ2IB3fEYA5x2f3D2p/CbSqzKEvuTEVbS5VZ2u+ew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"
+        integrity="sha512-Xc+rcY3w0DANwcFGWBcnBf2dw/p5a4IBAKqHdBJScNOnIH+qoQYE6xuWEdW3wiP7Q+XvL9MacrnKkzoP0Kexug=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/BezierPlugin.min.js"
+        integrity="sha512-plyexAULVlTExvDn2yUZFJV9F8q+53MC/GpU9dEuNGXmrrI3J8Rcffjvxg3OOBALBvF+UILPLIBEoCeF2maqTQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/PartsChoosing.js"></script>
+    <script type="text/javascript" src="static/js/config.js"></script>
+
+
+    {% endblock %}

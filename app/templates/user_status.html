@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-- user_status.html : the template for user status used in all other templates-->
+
+<html lang="en">
+<head>
+</head>
+<body>
+<!--User Status Form-->
+        <div class="container py-4 rounded popup" style="background-color: white;" id="UserStatusID">
+            <div class="row">
+                <div class="col-11"></div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-outline-dark btn-lg border-0 closeUserStatusForm">&times;</button>
+                </div>
+            </div>
+            <div class="row">
+                <h1 class="display-4 fw-bold text-center mb-4">User status</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-1"></div>
+                <div class="col-7 align-items-center">
+                    <h4 class="mb-2">Username</h4>
+                    <label class="mb-4"><b> {{ rendTempUsername }} </b></label>
+
+					<h4 class="mb-2">Email</h4>
+                    <label class="mb-4"><b> {{ rendTempEmail }} </b></label>
+
+                    <h4 class="mb-2">Uploaded MIDI Files</h4>
+                    <label id="midiFilesLabel"><b> {{ stringMIDI }} </b></label>
+                </div>
+                <div class="col-4 justify-items-center">
+                    <img src="static/images/radiocassete.png" class="img-fluid"
+                        style="margin-left: auto; margin-right: auto; display: block;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4 text-center">
+                    <div class="row">
+                        <button class="btn btn-outline-dark btn-lg w-100 btn-block mt-4 mb-4 closeUserStatusForm">
+                            Close status
+                        </button>
+                        <small class="form-text text-muted mb-4">Wrong account? <button id="logoutButton" style="background: none; border: none;"> <b>Log out</b> </button></small>
+                    </div>
+                    <div class="row">
+                        <button id="deleteButton" style="background: none; border: none; color: #Ff1810;"> <b>Delete this account</b> </button>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+        <!---->
+        <!--Overlay-->
+        <div class="overlayPopUp" style="position: fixed;"></div>
+        <!---->
+<script>
+    //display Login Form - we use the class name instead of the ID (bc we have multiple login buttons)
+    //let userStatusButton = document.getElementById("userstatusButton");
+    let userStatusButton = document.getElementById("btn-user-nav");
+    let overlayCollection = document.getElementsByClassName("overlayPopUp");
+    let userstatusFormPopup = document.getElementById("UserStatusID");
+    let closeuserstatusColl = document.getElementsByClassName("closeUserStatusForm");
+    let logoutButton = document.getElementById("logoutButton");
+    let body = document.getElementById("bodyID");
+    let click = false;
+
+    if(userStatusButton){
+        userStatusButton.addEventListener('click', openUserStatus);
+        userStatusButton.addEventListener('click', clicked);
+    }
+
+
+    if(closeuserstatusColl){
+        for(var i = 0; i < closeuserstatusColl.length; i++){
+            closeuserstatusColl[i].addEventListener('click', crossbar);
+            closeuserstatusColl[i].addEventListener('click', closeTheUserStatusForm);
+        }
+    }
+
+    if(logoutButton){
+        logoutButton.addEventListener('click', logout);
+    }
+
+    function logout(){
+        //Simply go to the homepage_not_logged
+        xhr = new XMLHttpRequest();
+        xhr.open("POST", address + "logout");
+        xhr.onload = function() {
+              if (xhr.status === 200) {
+                // Handle the successful response
+                window.location.href = address;
+                }
+              else {
+                // Handle the error response
+                const response = JSON.parse(xhr.responseText);
+                if (xhr.status === 400) {
+                  alert("An error has occured:" +response.error);
+                }
+              }
+        };
+        xhr.send();
+    }
+
+    //delete account
+    let deleteButton = document.getElementById("deleteButton")
+    if(deleteButton){
+        deleteButton.addEventListener('click', deleteAccount)
+    }
+
+    function deleteAccount(){
+        xhr = new XMLHttpRequest();
+        xhr.open("POST", address +"deleteAccount");
+        xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            window.location.href = address;
+                            }
+                        else {
+                            // Handle the error response
+                            const response = JSON.parse(xhr.responseText);
+                            if (xhr.status === 400) {
+                                alert(response)
+                            }
+                            if (xhr.status == 409) {
+                                alert(response)
+                            }
+                        }
+                    };
+        xhr.send()
+    }
+
+    function clicked() {
+        click = true;
+    }
+
+    function crossbar(){
+        click = false;
+    }
+    function openUserStatus(){
+            var stringYMiddle = (window.scrollY + (window.innerHeight * 0.5)).toString() + "px";
+            userstatusFormPopup.style.top = stringYMiddle;
+            for (var i = 0; i < overlayCollection.length; i++){
+                overlayCollection[i].classList.add("active");
+            }
+            userstatusFormPopup.classList.add("open-popup");
+            body.style.overflow = "hidden";
+    }
+
+    function closeTheUserStatusForm(){
+        for (var i = 0; i < overlayCollection.length; i++){
+            overlayCollection[i].classList.remove("active");
+        }
+        userstatusFormPopup.classList.remove("open-popup");
+        if(!click){
+            body.style.overflow = "visible";
+        }
+    }
+</script>
+<script type="text/javascript" src="static/js/config.js"></script>
+</body>
+</html>

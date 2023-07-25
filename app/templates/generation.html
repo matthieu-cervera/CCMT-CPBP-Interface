@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+<!-- generation.html : generation button to launch the melody generation-->
+
+{% block content %}
+    <main>
+
+        <div class="container-fluid" style="height: 120px;">
+        </div>
+    <div class="row m-4 text-center">
+        <div id="loading-div">
+            <button class="btn btn-outline-dark btn-lg" id="start-button" onclick="document.location.href='{{url_for('generation')}}';">Start Generation</button>
+        </div>
+    </div>
+    <div class="row m-4 text-center" style="height: 120px;">
+        <div class="indeterminate-progress-bar" style="left: 25%;">
+            <div class="indeterminate-progress-bar__progress"></div>
+        </div>
+    </div>
+
+        
+        <div class="container-fluid" style="height: 150px;">
+        </div>
+
+
+<div id="output-div"></div>
+
+
+
+
+        <div class="container-fluid" style="height: 80px;"></div>
+        <div class="container" style="width: 70%;">
+        </div>
+        <div class="container-fluid" style="height: 40px;">
+        </div>
+        <div class="container-fluid" style="height: 40px;"></div>
+        <!--User Status Form-->
+        {% include 'user_status.html' %}
+        <!---->
+        <!--Overlay-->
+        <div class="overlayPopUp" style="position: fixed;"></div>
+        <!---->
+    </main>
+    <footer class="text-center text-white border-top" style="background-color: #5f99c5; ">
+        <div class="container-fluid justify-content-center">
+            <div class="row justify-content-center">
+                <div class="col-4"></div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #3b5998;"
+                        href="https://www.facebook.com/polymtl" target="_blank" role="button"><i
+                            class="fa fa-facebook-f fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #333333;"
+                        href="https://www.youtube.com/@polymtlvideos" target="_blank" role="button"><i
+                            class="fa fa-youtube fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #dd4b39;"
+                        href="https://www.polymtl.ca/" target="_blank" role="button"><i class="fa fa-google fa-lg"></i>
+                    </a>
+                    </button>
+                </div>
+                <div class="col m-3 align-items-center">
+                    <a class="btn text-white btn-circle-pablo m-1" style="background-color: #55acee;"
+                        href="https://twitter.com/polymtl" target="_blank" role="button"><i
+                            class="fa fa-twitter fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="text-center text-white p-3" style="background-color: #1A6DAC">
+                    © 2022 Copyright:
+                    <a class="text-white" href="https://www.polymtl.ca/" target="_blank">Polytechnique Montréal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="static/js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.22.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
+    <script type="text/javascript" src="static/js/sampling_exec.js"></script>
+
+    {% endblock %} 
+
+
+

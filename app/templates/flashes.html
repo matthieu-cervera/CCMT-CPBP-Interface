@@ -1,0 +1,44 @@
+<!-- flashes.html : js and html to style alerts to the user. Flash appear when the python function 'flash_not_empty' is called-->
+<!DOCTYPE html>
+
+<body>
+
+<div class="alert-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+<script>
+    setTimeout(function() {
+        let alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+             alert.style.display = 'none';
+            });
+    }, 10000);
+
+    setTimeout(function(){
+        let alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+            let closeButton = document.createElement('button');
+            closeButton.type = 'button';
+            closeButton.className = 'close';
+            closeButton.setAttribute('aria-label', 'Close');
+            closeButton.innerHTML = '<span aria-hidden="true">&times;</span>';
+            closeButton.addEventListener('click', function() {
+                alert.style.display = 'none';
+            });
+            alert.appendChild(closeButton);
+        });
+        }, 1);
+
+</script>
+
+</body>
+</html>

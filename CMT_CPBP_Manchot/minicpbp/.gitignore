@@ -1,0 +1,12 @@
+*.class
+.idea
+.DS_Store
+project/
+target/
+.m2
+.vscode
+*.iml
+minicp.zip
+userguide/build/
+userguide/userguideenv/
+dependency-reduced-pom.xml

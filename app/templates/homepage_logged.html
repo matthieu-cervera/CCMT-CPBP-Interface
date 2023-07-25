@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+<!-- homepage_logged.html : same as homepage_not_logged but with the buttons enabled-->
+
+{% block content %}
+
+<main>
+    <style>
+        .vertical-space {
+            margin-bottom: 20px; 
+        }
+    </style>
+    
+    <div class="vertical-space">
+    </div>
+
+    <div class="container-fluid border-bottom">
+        <div class="row align-items-center">
+            <div class="col-8 text-center mx-0">
+                <h2 class="text-left display-2" id="title-1"><b>Generating music has never been easier</b></h2>
+                <div>
+                    <p class="text-muted display-6 text-center mb-0 mt-4" id="title-2">AI algorithms are key to this
+                        success</p>
+                </div>
+            </div>
+            <div class="col-4 mb-0">
+                <img src="static/images/guitar_woman_frame.png" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="b-example-divider"></div>
+    <section class="section-hero">
+        <div class="hero">
+            <img src="static/images/music_sheet_rotated.png" alt="music sheet">
+            <h1 class="display-4 fw-bold"> <span class="underline-pablo">¿How does this work?</span></h1>
+            <h4 class="display-6">Learn more about below, but first...</h4>
+            <button class="btn btn-outline-dark btn-lg btn-block mt-4 disabled-general"> <i class="fa fa-user fa-lg"></i>
+                | Log in
+            </button>
+        </div>
+    </section>
+    <div class="b-example-divider"></div>
+    <section style="height: 30vh;" id="aeroplane-sec">
+        <div class="noteaeroplane-animation" id="aeroplane_bckg_id">
+            <img class="noteaeroplane" src="static/images/midifile.png" alt="aeroplane note" id="aeroplanenote">
+        </div>
+    </section>
+    <div id="pinContainer">
+        <div id="slideContainer">
+            <div class="singleContainer container-fluid p-4 justify-content-center"
+                style="background-color: #1A6DAC;">
+                <div class="row h-25 align-items-center">
+                    <h1 class="display-2 fw-bold text-center" style="color: #FFFFFF;">Upload your MIDI Files or select a file from our dataset</h1>
+                </div>
+                <div class="row h-75 align-items-center typewriter">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <p class="display-6 text-center" style="color: #1A6DAC" id="textFCont">No worries, we'll
+                            take care of them... ;)</p>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+            <div class="singleContainer container-fluid p-4 justify-content-center"
+                style="background-color: #387eb4;">
+                <div class="row h-25 align-items-center">
+                    <h1 class="display-2 fw-bold text-center" style="color: #FFFFFF;">Select project Hyperparameters
+                    </h1>
+                </div>
+                <div class="row h-50 align-items-center">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-6 justify-items-center">
+                        <img src="static/images/brain_network.png" class=" img-fluid"
+                            style="margin-left: auto; margin-right: auto; display: block;">
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+                <div class="row h-25 align-items-center">
+                    <p class="display-6 text-center" style="color: #FFFFFF">But first select what constraints to apply!</p>
+                </div>
+            </div>
+            <div class="singleContainer container-fluid p-4 justify-content-center"
+                style="background-color: #5f99c5;">
+                <div class="row h-25 align-items-center">
+                    <h1 class="display-2 fw-bold text-center" style="color: #FFFFFF;">And that's it... new music
+                        generated!</h1>
+                </div>
+                <div class="row h-50 align-items-center">
+                    <img src="static/images/music_gif.gif" class=" img-fluid"
+                        style="max-width: 100%; height: auto; width: auto; margin-left: auto; margin-right: auto; display: block;">
+                </div>
+                <div class="row h-25 align-items-center">
+                    <p class="display-6 text-center" style="color: #FFFFFF">Enjoy the AI vibes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="height: 60vh;"></div>
+    <!--disabled-continue-->
+    <form action="{{url_for('fileProcessNew', firstprocess=0)}}" method="POST" id="whichSampleForm">
+    <div class="container border rounded mb-4 chooseMIDI">
+        <div class="row m-4">
+            <div class="form-check border rounded mb-4">
+                <input class="form-check-input m-4" type="radio" name="radioMIDICheckpoint" id="IDradioMIDI">
+                <label class="form-check-label my-3" for="IDradioMIDI">
+                    <h4>Choose your own MIDI File</h4>
+                </label>
+                <div class="row m-4 disabled-general" id="midiFilesRow">
+                    <label class="form-label text-muted">We will preprocess them, no worries. Please note that your file might be saved for evaluation purposes.</label>
+                    <input class="form-control form-control-lg" type="file" multiple accept=".mid" id="formFileLg">
+                </div>
+                <div class="container my-4" id="displayMIDI">
+                    <hr />
+                    <div class="container-fluid text-left my-4">
+                        <ul id="midifileslist" style="list-style-type: none;" ></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="form-check border rounded">
+                <input class="form-check-input m-4" type="radio" name="radioMIDICheckpoint" id="IDradioCheckpoint">
+                <label class="form-check-label my-3" for="IDradioCheckpoint">
+                  <h4>Use one of our MIDI files</h4>
+                </label>
+                <div class="row m-4 disabled-general" id="userSampleChoice">
+                    <label class="form-label text-muted">You can choose whether you want a random sample or give any sample number.</label>
+                    <input style="width: 15%" type="number" name="sample_number" id="sample_number">
+                </div>
+                <div class="row m-4 disabled-general" id="userMelodyDisplayChoice">
+                    <label class="form-label text-muted">You can choose if you want to display the melody of the sample when choosing the constraints. Display the melody?</label>
+                    <input type="checkbox" name="see_gt_melody" id="see_gt_melody" style="transform: scale(1.5); margin-right: 10px;">
+                </div>
+            </div>
+            
+        </div>        
+        <div class="row m-4 text-center">
+            <input type="submit" class="btn btn-outline-dark btn-lg mt-4 disabled-general" id="contButton" value="Continue">    
+        </div>
+    </div>
+    </form>
+    <!--User Status Form-->
+    {% include 'user_status.html' %}
+    <!---->
+    <!--Overlay-->
+    <div class="overlayPopUp" style="position: fixed;"></div>
+    <!---->
+</main>
+<footer class="text-center text-white border-top" style="background-color: #5f99c5; ">
+    <div class="container-fluid justify-content-center">
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col m-3 align-items-center">
+                <a class="btn text-white btn-circle-pablo m-1" style="background-color: #3b5998;"
+                    href="https://www.facebook.com/polymtl" target="_blank" role="button"><i
+                        class="fa fa-facebook-f fa-lg"></i>
+                </a>
+            </div>
+            <div class="col m-3 align-items-center">
+                <a class="btn text-white btn-circle-pablo m-1" style="background-color: #333333;"
+                    href="https://www.youtube.com/@polymtlvideos" target="_blank" role="button"><i
+                        class="fa fa-youtube fa-lg"></i>
+                </a>
+            </div>
+            <div class="col m-3 align-items-center">
+                <a class="btn text-white btn-circle-pablo m-1" style="background-color: #dd4b39;"
+                    href="https://www.polymtl.ca/" target="_blank" role="button"><i class="fa fa-google fa-lg"></i>
+                </a>
+                </button>
+            </div>
+            <div class="col m-3 align-items-center">
+                <a class="btn text-white btn-circle-pablo m-1" style="background-color: #55acee;"
+                    href="https://twitter.com/polymtl" target="_blank" role="button"><i
+                        class="fa fa-twitter fa-lg"></i>
+                </a>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row">
+            <div class="text-center text-white p-3" style="background-color: #1A6DAC">
+                © 2022 Copyright:
+                <a class="text-white" href="https://www.polymtl.ca/" target="_blank">Polytechnique Montréal</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"
+    integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
+    integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"
+    integrity="sha512-RvUydNGlqYJapy0t4AH8hDv/It+zKsv4wOQGb+iOnEfa6NnF2fzjXgRy+FDjSpMfC3sjokNUzsfYZaZ8QAwIxg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"
+    integrity="sha512-5/OHwmQzDSBS0Ous4/hlYoWLHd06/d2r7LdKZQVBXOA6PvOqWVXtdboiLTU7lQTGyVoKVTNkwi0ol4gHGlw5ww=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"
+    integrity="sha512-pvDW4tehKKsohH97164HwKwRGFpzayEFWTVbk8HuUoLIQ7Jp+WLN5XYokVuoCj2aT6dy8ihbW8SRTG1k0W4mSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"
+    integrity="sha512-tSIDeirKC6suYILHqqPuZH3s0MvD4a5vCHXhBIcdmq4gQXZ2IB3fEYA5x2f3D2p/CbSqzKEvuTEVbS5VZ2u+ew=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"
+    integrity="sha512-Xc+rcY3w0DANwcFGWBcnBf2dw/p5a4IBAKqHdBJScNOnIH+qoQYE6xuWEdW3wiP7Q+XvL9MacrnKkzoP0Kexug=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/BezierPlugin.min.js"
+    integrity="sha512-plyexAULVlTExvDn2yUZFJV9F8q+53MC/GpU9dEuNGXmrrI3J8Rcffjvxg3OOBALBvF+UILPLIBEoCeF2maqTQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/homepage_logged.js"></script>
+<script type="text/javascript" src="static/js/config.js"></script>
+
+
+{% endblock %}

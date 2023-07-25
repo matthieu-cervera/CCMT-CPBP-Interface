@@ -1,0 +1,7 @@
+I CMT_CPBP_Manchot 07-25 15:10:03.858 run_CCMT_CPBP.py:71] get loaders
+I CMT_CPBP_Manchot 07-25 15:10:03.859 run_CCMT_CPBP.py:77] build graph, criterion, optimizer and trainer
+I CMT_CPBP_Manchot 07-25 15:10:04.124 run_CCMT_CPBP.py:116] start sampling
+I CMT_CPBP_Manchot 07-25 15:10:04.477 trainer.py:71] restore model with 100 epoch
+I CMT_CPBP_Manchot 07-25 15:10:17.174 trainer.py:449] ==========sampling result of epoch 100==========
+I CMT_CPBP_Manchot 07-25 15:10:17.175 trainer.py:453] Sample 00 : [49  9 49 48 11 12 14 12 48 49 48 14 49 49 48 49 48 49 48 49]
+I CMT_CPBP_Manchot 07-25 15:10:17.485 trainer.py:472] Groundtruth 00 : [12 48 48 48 48 48 48 48  9 48  7 48 48 48 48 48 12 48 12 48]

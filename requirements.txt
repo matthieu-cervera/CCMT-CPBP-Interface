@@ -1,0 +1,16 @@
+#----PYTHON----
+
+flask
+flask_wtf
+wtforms
+flask_sqlalchemy
+flask-socketio
+datetime
+flask_security
+flask_login
+flask_migrate
+werkzeug #==2.0.3
+pyjwt
+music21
+flask-cors
+pretty_midi
