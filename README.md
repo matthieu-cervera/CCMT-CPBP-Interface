@@ -41,7 +41,7 @@ The required libraries for python are inside the requirements.txt file. You can 
 File Architecture Overview
 --------------------------
 
-### Top Folder
+### ***CCMT-CPBP-Interface*** Folder
 The top-level folder houses essential components and modules that constitute the core of the application.
 
 - ***app folder:*** This folder contains the primary application code, static assets, templates, and other supporting files.
@@ -54,7 +54,7 @@ The top-level folder houses essential components and modules that constitute the
 
 - **run.py:** The `run.py` file serves as the entry point for the Flask app, initiating the application's execution in debug mode.
 
-### app folder
+### ***app*** folder
 The `app` folder is the central hub of the Flask application, containing its main components.
 
 - ***static folder:*** The `static` folder houses static assets, such as CSS files for styling, JavaScript scripts, images and music samples that are directly served to clients.
@@ -72,7 +72,7 @@ The `app` folder is the central hub of the Flask application, containing its mai
 - **config_commands.py** Config file for views. Change paths for the flask application to run correctly
 
 
-### CCMT_CPBP_Manchot folder
+### ***CCMT_CPBP_Manchot*** folder
 
 - **run_CCMT_CPBP.py:** The `run_CCMT_CPBP.py` file serves as a script for the CCMT-CPBP model.
 
@@ -103,7 +103,7 @@ The `app` folder is the central hub of the Flask application, containing its mai
 - ***python3-midi-master*** No changes have been made in the midi library for python 3 from the original code <https://github.com/louisabraham/python3-midi>
 
 
-### minicpbp/src/main/java/minicpbp/examples folder
+### ***minicpbp/src/main/java/minicpbp/examples*** folder
 
 - **durationModel.java:** This is the base model for CP on rhythm. This model contains all the already implemented constraints and works with python subprocess.Popen
 
