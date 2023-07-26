@@ -78,7 +78,7 @@ class ConstraintProgramming():
     sample a token with constraints
     '''
     def _cpbp_java_popen(self, java_process, tokens, output, epoch, beam_index, i, device, cp_on_rhythm, beam_search=False):
-        ml_weight = self._get_weight(i, cp_on_rhythm)
+        ml_weight = 1.0
 
         key = self.RHYTHM if cp_on_rhythm else self.PITCH
         i_title = f'Popen__{key}______i:{i}_______w:{ml_weight}_______'
