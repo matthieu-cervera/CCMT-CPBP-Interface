@@ -15,7 +15,7 @@ from scipy import stats, integrate
 def overlap_area(A, B):
     pdf_A = stats.gaussian_kde(A)
     pdf_B = stats.gaussian_kde(B)
-    return integrate.quad(lambda x: min(pdf_A(x), pdf_B(x)), np.min((np.min(A), np.min(B))), np.max((np.max(A), np.max(B))))[0]
+    return integrate.quad(lambda x: min(pdf_A(x), pdf_B(x)), np.min((np.min(A), np.min(B))), np.max((np.max(A), np.max(B))), limit=150)[0]
 
 
 # Calculate KL distance between the two PDF

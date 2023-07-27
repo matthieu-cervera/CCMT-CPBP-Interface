@@ -1,8 +1,8 @@
 from collections import Counter
-from msilib.schema import Error
+#from msilib.schema import Error
 from mgeval import core, utils
 from music21 import *
-from pprint import pprint
+#from pprint import pprint
 from scipy.spatial import distance
 from sklearn.model_selection import LeaveOneOut
 
@@ -42,16 +42,19 @@ def get_metrics_rhythm_NDBR_RPD(sampling_results_path):
     """
     rhythm_distribution_test = {}
     rhythm_distribution_sample = {}
-
+    count_files = [0,0]
     for root, _ , files in os.walk(sampling_results_path, topdown=True):
         for file in files:
             if not file.endswith('.pkl'):
                 continue
-            if 'groundtruth' in file:
+            if 'groundtruth' in file or 'gt' in file:
                 _rhythm_patterns(os.path.join(root, file), rhythm_distribution_test)
+                count_files[0] += 1 
             else:
                 _rhythm_patterns(os.path.join(root, file), rhythm_distribution_sample)
+                count_files[1] += 1 
 
+    print(count_files)
     print('RHYTHM DISTRIBUTION')
     print(f'{len(rhythm_distribution_test.keys())} different bar rhythms in the test dataset')
     print(f'{len(rhythm_distribution_sample.keys())} different bar rhythms in the generated samples')
@@ -106,7 +109,7 @@ def get_metrics_rhythm_OTPD(sampling_results_path):
                     nb_onsets = rhythm_onset.sum()
                     if nb_onsets == 0 or nb_onsets == FRAME_PER_BAR:
                         continue
-                    if 'groundtruth' in file:
+                    if 'groundtruth' in file or 'gt' in file:
                         heatmaps_test[nb_onsets - 1] = np.add(heatmaps_test[nb_onsets - 1], rhythm_onset)
                         total_test[nb_onsets - 1] += 1
                     else:
@@ -114,14 +117,14 @@ def get_metrics_rhythm_OTPD(sampling_results_path):
                         total_sample[nb_onsets - 1] += 1
 
     jsd_per_nb_notes = [0] * (FRAME_PER_BAR - 1)
-    for i in range(FRAME_PER_BAR - 1):
+    for i in range(FRAME_PER_BAR - 4):
         heatmaps_test[i] = heatmaps_test[i] / total_test[i]
         heatmaps_sample[i] = heatmaps_sample[i] / total_sample[i]
         jsd = distance.jensenshannon(heatmaps_test[i], heatmaps_sample[i], 2.0) ** 2
         jsd_per_nb_notes[i] = jsd
     
     
-    for i in range(FRAME_PER_BAR - 1):
+    for i in range(FRAME_PER_BAR - 4):
         print(f'{jsd_per_nb_notes[i]:.3f} ', end='')
     print('')
     print(f'JSD mean: {np.mean(jsd_per_nb_notes):.3f}')
@@ -205,7 +208,7 @@ def get_metric_distribution_number_notes_per_bar(sampling_results_path):
         for file in files:
             if not file.endswith('.pkl'):
                 continue
-            if 'groundtruth' in file:
+            if 'groundtruth' in file or 'gt' in file:
                 _rhythm_patterns_by_onset_note(os.path.join(root, file), rhythm_distribution_test)
             else:
                 _rhythm_patterns_by_onset_note(os.path.join(root, file), rhythm_distribution_sample)
@@ -449,11 +452,15 @@ def get_mgeval_metrics(sampling_results_path, output_path, num_samples, max_samp
         for file in files:
             if not file.endswith('.mid'):
                 continue
-            if 'sample' in file:
-                if int(file.split('sample')[1][:-4]) in sub_sample:
-                    set1.append(os.path.join(root, file))
-            elif int(file.split('groundtruth')[1][:-4]) in sub_sample:
-                set2.append(os.path.join(root, file))
+            # if 'sample' in file:
+            #     if int(file.split('sample')[1][:-4]) in sub_sample:
+            #         set1.append(os.path.join(root, file))
+            # elif int(file.split('groundtruth')[1][:-4]) in sub_sample:
+            #     set2.append(os.path.join(root, file))
+            if 'groundtruth' in file or 'gt' in file:
+                    set2.append(os.path.join(root, file))
+            elif 'sample' in file:
+                set1.append(os.path.join(root, file))
 
     if not any(set1) or not any(set2):
         print("Error: set empty")
@@ -584,7 +591,7 @@ def get_mgeval_metrics(sampling_results_path, output_path, num_samples, max_samp
         std_set2 = np.std(set2_eval[metric], axis=0)
         
         # inter-set distances
-        kl2 = utils.kl_dist(plot_set2_intra[i], plot_sets_inter[i]) # (test, test), (CMT, test)
+        kl2 = utils.kl_dist(plot_set2_intra[i], plot_sets_inter[i], 740) # (test, test), (CMT, test)
         ol2 = utils.overlap_area(plot_set2_intra[i], plot_sets_inter[i])
 
         # write in file
@@ -606,16 +613,40 @@ def get_mgeval_metrics(sampling_results_path, output_path, num_samples, max_samp
     print(f'{int(time.time() - start_time)}s')
     print(f'Total time: {int(time.time() - start_total)}s')
 
-sample_path = r'path\path\path\generated_folder_files'
-mgeval_output = r'output\path\path\mgeval'
+# sample_path = r'path\path\path\generated_folder_files'
+sample_path = '/usagers4/p118640/User_Interface_Project-main/midi2pkl/pkl_files'
+midi_sample_path = '/usagers4/p118640/User_Interface_Project-main/midi2pkl/midi_files_repository_copy'
+# mgeval_output = r'output\path\path\mgeval'
+mgeval_output = '/usagers4/p118640/User_Interface_Project-main/mgeval'
 nb_bars_constrained = 8
+
+# base transformer
+sample_cmt_path = '/usagers4/p118640/User_Interface_Project-main/CMT_generated_samples/'
+
+
+get_metrics_rhythm_NDBR_RPD(sample_cmt_path)
+get_metrics_rhythm_OTPD(sample_cmt_path)
+count_last_token_onset(sample_cmt_path, nb_bars_constrained, False)
+count_last_token_onset(sample_cmt_path, nb_bars_constrained, True)
+get_metric_rhythm_patterns_top_k(sample_cmt_path, 10, nb_bars_constrained)
+get_metric_distribution_number_notes_per_bar(sample_cmt_path)
+get_mgeval_metrics(sample_cmt_path, mgeval_output, 1250)
+
+get_metric_chord_tone_ratio(sample_cmt_path, 'ctr', nb_bars_constrained)
+get_metric_chord_tone_ratio(sample_cmt_path, 'ctr_1', nb_bars_constrained)
+get_metric_chord_tone_ratio(sample_cmt_path, 'ctr_last', nb_bars_constrained)
+heatmap_first_time_c_major_data(sample_cmt_path, nb_bars_constrained, False)
+heatmap_first_time_c_major_data(sample_cmt_path, nb_bars_constrained, True)
+
+
+
 # get_metrics_rhythm_NDBR_RPD(sample_path)
 # get_metrics_rhythm_OTPD(sample_path)
 # count_last_token_onset(sample_path, nb_bars_constrained, False)
 # count_last_token_onset(sample_path, nb_bars_constrained, True)
 # get_metric_rhythm_patterns_top_k(sample_path, 10, nb_bars_constrained)
 # get_metric_distribution_number_notes_per_bar(sample_path)
-# get_mgeval_metrics(sample_path, mgeval_output, 500)
+# get_mgeval_metrics(midi_sample_path, mgeval_output, 600)
 
 # get_metric_chord_tone_ratio(sample_path, 'ctr', nb_bars_constrained)
 # get_metric_chord_tone_ratio(sample_path, 'ctr_1', nb_bars_constrained)

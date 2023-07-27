@@ -13,5 +13,6 @@ torch==1.12.1
 tqdm==4.64.0
 tensorboardX
 jep==4.1.1
+python-midi
 
 

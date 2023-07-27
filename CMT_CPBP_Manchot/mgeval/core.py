@@ -55,6 +55,13 @@ class metrics(object):
         pattern = feature['midi_pattern']
         pattern.make_ticks_abs()
         resolution = pattern.resolution
+        note_list = []
+        if num_bar is None:
+            num_bar = int(round(float(pattern[track_num][-1].tick) / bar_length))
+            used_notes = np.zeros((num_bar, 1))
+        else:
+            used_notes = np.zeros((num_bar, 1))
+                    
         for i in range(0, len(pattern[track_num])):
             if type(pattern[track_num][i]) == midi.events.TimeSignatureEvent:
                 time_sig = pattern[track_num][i].data
@@ -135,6 +142,12 @@ class metrics(object):
         pattern = feature['midi_pattern']
         pattern.make_ticks_abs()
         resolution = pattern.resolution
+        
+        if num_bar is None:
+            num_bar = int(round(float(pattern[track_num][-1].tick) / bar_length))
+            used_notes = np.zeros((num_bar, 1))
+        else:
+            used_notes = np.zeros((num_bar, 1))
         for i in range(0, len(pattern[track_num])):
             if type(pattern[track_num][i]) == midi.events.TimeSignatureEvent:
                 time_sig = pattern[track_num][i].data
